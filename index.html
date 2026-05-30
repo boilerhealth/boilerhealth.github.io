@@ -241,6 +241,112 @@ body {
   transform: translateX(100%) rotate(45deg);
 }
 
+
+/* ===== PREMIUM DEAL BANNER ===== */
+.hero-deal-banner {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+  position: relative;
+  padding: 20px 50px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #ffd700 0%, #ff8c00 50%, #ffb347 100%);
+  box-shadow: 0 8px 30px rgba(255,140,0,0.4), 0 0 60px rgba(255,215,0,0.2), inset 0 2px 0 rgba(255,255,255,0.4);
+  animation: dealBannerPulse 3s ease-in-out infinite;
+  overflow: hidden;
+}
+.hero-deal-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: bannerShine 3s ease-in-out infinite;
+}
+@keyframes bannerShine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+@keyframes dealBannerPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 8px 30px rgba(255,140,0,0.4), 0 0 60px rgba(255,215,0,0.2), inset 0 2px 0 rgba(255,255,255,0.4); }
+  50% { transform: scale(1.04); box-shadow: 0 12px 40px rgba(255,140,0,0.6), 0 0 90px rgba(255,215,0,0.35), inset 0 2px 0 rgba(255,255,255,0.5); }
+}
+.deal-line {
+  font-size: clamp(12px, 2vw, 16px);
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #121212;
+  display: block;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+.deal-headline {
+  font-size: clamp(28px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  display: inline-block;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+}
+.deal-headline span {
+  color: #121212;
+  background: linear-gradient(135deg, #ffd700 0%, #ffb347 50%, #ff8c00 100%);
+  background-size: 200% 200%;
+  padding: 4px 14px;
+  border-radius: 10px;
+  margin-left: 6px;
+  box-shadow: 0 4px 15px rgba(255,140,0,0.4), 0 0 30px rgba(255,215,0,0.2), inset 0 1px 0 rgba(255,255,255,0.4);
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  animation: badgeGradientShift 3s ease infinite, badgeMegaGlow 2s ease-in-out infinite;
+  font-weight: 900;
+}
+.deal-headline span::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  animation: badgeShine 2s ease-in-out infinite;
+}
+.deal-headline span::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #ffd700, #ff8c00, #ffb347, #ffd700);
+  background-size: 300% 100%;
+  z-index: -1;
+  opacity: 0.6;
+  animation: borderFlow 3s linear infinite;
+  filter: blur(4px);
+}
+@keyframes badgeGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes badgeMegaGlow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(255,140,0,0.4), 0 0 30px rgba(255,215,0,0.2), inset 0 1px 0 rgba(255,255,255,0.4); }
+  50% { box-shadow: 0 6px 25px rgba(255,140,0,0.7), 0 0 60px rgba(255,215,0,0.5), 0 0 100px rgba(255,140,0,0.15), inset 0 1px 0 rgba(255,255,255,0.5); }
+}
+@keyframes badgeShine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
 /* ===== FEATURE CARDS - REALISTIC GLASS ===== */
 .features-grid {
   display: grid;
@@ -984,6 +1090,54 @@ body {
 }
 .chat-popup-close:hover { color: #ff8c00; }
 
+/* ===== CROSSED-OUT PRICING ===== */
+.price-original {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.55em;
+  opacity: 0.7;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.price-original span {
+  font-size: 0.8em;
+  color: #999;
+}
+.price-offer {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.plan-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.plan-card.popular .price-original {
+  color: #aaa;
+  opacity: 0.6;
+}
+.plan-card.popular .price-original span {
+  color: #888;
+}
+
+/* ===== SAVE BADGE ===== */
+.save-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff3b30 0%, #ff6b00 100%);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(255,59,48,0.3);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .footer-grid {
@@ -1291,7 +1445,6 @@ body {
   }
 }
 
-
 /* ===== FAQ SLIDES SECTION - Full Screen Presentation ===== */
 .faq-slides-section {
   position: relative;
@@ -1575,6 +1728,54 @@ body {
   font-family: monospace;
 }
 
+/* ===== CROSSED-OUT PRICING ===== */
+.price-original {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.55em;
+  opacity: 0.7;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.price-original span {
+  font-size: 0.8em;
+  color: #999;
+}
+.price-offer {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.plan-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.plan-card.popular .price-original {
+  color: #aaa;
+  opacity: 0.6;
+}
+.plan-card.popular .price-original span {
+  color: #888;
+}
+
+/* ===== SAVE BADGE ===== */
+.save-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff3b30 0%, #ff6b00 100%);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(255,59,48,0.3);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .faq-slide__content {
@@ -1628,6 +1829,7 @@ body {
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -1663,6 +1865,7 @@ body {
 </header>
 <!-- Spacer for fixed header -->
 <div style="height: 60px;"></div>
+
 
 
 <!-- PARTICLE BACKGROUND -->
@@ -1740,7 +1943,11 @@ body {
   </div>
 
   <div class="hero-content">
-    <h1 class="hero-title reveal">THE END OF <span style="color:#ff8c00;">COLD</span></h1>
+    <div class="hero-deal-banner reveal">
+        <span class="deal-line">Limited Time Summer Offer</span>
+        <span class="deal-headline">UP TO <span>35% OFF</span></span>
+      </div>
+      <h1 class="hero-title reveal">THE END OF <span style="color:#ff8c00;">COLD</span></h1>
     <p class="hero-subtitle reveal reveal-delay-1">
       Precision-engineered boiler insurance that keeps your home warm, your system protected, and your mind at ease.
     </p>
@@ -1816,7 +2023,8 @@ body {
     <!-- Core Plan -->
     <div class="plan-card reveal">
       <h2 class="plan-name">Core</h2>
-      <h3 class="plan-price" data-annual="99" data-monthly="8.25">£99<span>/year</span></h3>
+      <div class="save-badge">Save 26%</div>
+      <h3 class="plan-price" data-annual-original="133.56" data-annual="99" data-monthly-original="11.13" data-monthly="8.25"><span class="price-original">£133.56<span>/year</span></span><span class="price-offer">£99<span>/year</span></span></h3>
       <ul class="plan-features">
         <li>Boiler breakdown</li>
         <li>Annual service included</li>
@@ -1829,7 +2037,8 @@ body {
     <div class="plan-card popular reveal reveal-delay-1">
       <div class="popular-tag">MOST POPULAR</div>
       <h2 class="plan-name">Comprehensive</h2>
-      <h3 class="plan-price" data-annual="282.722" data-monthly="23.56">£282.722<span>/year</span></h3>
+      <div class="save-badge">Save 35%</div>
+      <h3 class="plan-price" data-annual-original="435" data-annual="282.722" data-monthly-original="36.25" data-monthly="23.56"><span class="price-original">£435<span>/year</span></span><span class="price-offer">£282.722<span>/year</span></span></h3>
       <ul class="plan-features">
         <li>Boiler breakdown</li>
         <li>Appliances</li>
@@ -1848,7 +2057,8 @@ body {
     <!-- Absolute Plan -->
     <div class="plan-card reveal reveal-delay-2">
       <h2 class="plan-name">Absolute</h2>
-      <h3 class="plan-price" data-annual="155.99" data-monthly="13.00">£155.99<span>/year</span></h3>
+      <div class="save-badge">Save 35%</div>
+      <h3 class="plan-price" data-annual-original="240" data-annual="155.99" data-monthly-original="20.00" data-monthly="13.00"><span class="price-original">£240<span>/year</span></span><span class="price-offer">£155.99<span>/year</span></span></h3>
       <ul class="plan-features">
         <li>Everything included</li>
         <li>Boiler breakdown</li>
@@ -2521,11 +2731,18 @@ function updatePrices() {
     prices.forEach(price => {
         const annual = parseFloat(price.dataset.annual);
         const monthly = parseFloat(price.dataset.monthly);
+        const annualOriginal = parseFloat(price.dataset.annualOriginal);
+        const monthlyOriginal = parseFloat(price.dataset.monthlyOriginal);
+
         const value = currentPeriod === 'annual' ? annual : monthly;
+        const originalValue = currentPeriod === 'annual' ? annualOriginal : monthlyOriginal;
         const suffix = currentPeriod === 'annual' ? '/year' : '/month';
-        const decimals = currentPeriod === 'annual' ? 3 : 2;
+        const decimals = currentPeriod === 'annual' ? 2 : 2;
         const formatted = value.toFixed(decimals).replace(/\.?0+$/, '');
-        price.innerHTML = '£' + formatted + '<span>' + suffix + '</span>';
+        const originalFormatted = originalValue.toFixed(decimals).replace(/\.?0+$/, '');
+
+        price.innerHTML = '<span class="price-original">£' + originalFormatted + '<span>' + suffix + '</span></span>' +
+                          '<span class="price-offer">£' + formatted + '<span>' + suffix + '</span></span>';
     });
 }
 
@@ -2554,7 +2771,6 @@ function setBilling(period) {
 function toggleBilling() {
     setBilling(currentPeriod === 'annual' ? 'monthly' : 'annual');
 }
-
 
 // ===== FAQ SLIDES NAVIGATION =====
 (function() {
@@ -2743,6 +2959,3 @@ function toggleBilling() {
     }
 })();
 </script>
-
-</body>
-</html>
