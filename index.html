@@ -1627,6 +1627,7 @@ body {
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -2623,10 +2624,10 @@ function toggleBilling() {
     if (!isVisible) return;
 
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-      e.preventDefault();
+      if (faqCurrentIndex < totalFaqSlides - 1) e.preventDefault();
       faqGoNext();
     } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-      e.preventDefault();
+      if (faqCurrentIndex > 0) e.preventDefault();
       faqGoPrev();
     }
   });
@@ -2636,6 +2637,11 @@ function toggleBilling() {
   const faqWheelThreshold = 50;
 
   faqSlidesSection.addEventListener('wheel', function(e) {
+    // Let page scroll normally at boundaries
+    if ((faqCurrentIndex === 0 && e.deltaY < 0) || (faqCurrentIndex === totalFaqSlides - 1 && e.deltaY > 0)) {
+      return;
+    }
+
     e.preventDefault();
 
     faqWheelDelta += e.deltaY;
