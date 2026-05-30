@@ -1290,11 +1290,334 @@ body {
     color: #888 !important;
   }
 }
+
+
+/* ===== FAQ SLIDES SECTION - Full Screen Presentation ===== */
+.faq-slides-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.faq-slides-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ===== NAVIGATION ===== */
+.faq-slides-nav {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.faq-nav-btn {
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  border: 2px solid rgba(255,140,0,0.4);
+  background: rgba(18,18,18,0.9);
+  color: #ff8c00;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.faq-nav-btn:hover {
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
+  color: #121212;
+  border-color: #ff8c00;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255,140,0,0.4);
+}
+
+.faq-nav-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.faq-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.faq-slide-counter {
+  color: #777;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 8px;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* ===== INDIVIDUAL SLIDE ===== */
+.faq-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s cubic-bezier(0.25, 0.8, 0.25, 1),
+              visibility 0.7s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+}
+
+/* Slide content wrapper */
+.faq-slide__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px 120px;
+}
+
+/* Background image */
+.faq-slide__figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.faq-slide__img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.25) saturate(0.6);
+  transform: scale(1.1);
+  transition: transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1),
+              filter 1.2s;
+}
+
+.faq-slide.is-active .faq-slide__img {
+  transform: scale(1);
+  filter: brightness(0.2) saturate(0.5);
+}
+
+/* Dark overlay gradient */
+.faq-slide__figure::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10,10,10,0.7) 0%,
+    rgba(10,10,10,0.3) 40%,
+    rgba(10,10,10,0.8) 100%
+  );
+}
+
+/* ===== FAQ CARD ===== */
+.faq-slide__faq {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Question styling */
+.faq-slide-question {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #fff 0%, #ff8c00 50%, #ffb347 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: faqTitleShimmer 5s ease-in-out infinite;
+}
+
+@keyframes faqTitleShimmer {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.2); }
+}
+
+/* Answer card */
+.faq-slide-answer-card {
+  background: linear-gradient(145deg, rgba(28,28,28,0.95) 0%, rgba(18,18,18,0.98) 100%);
+  padding: 40px 50px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0.2s;
+}
+
+.faq-slide.is-active .faq-slide-answer-card {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.faq-slide-answer-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff8c00, #ffb347);
+}
+
+.faq-slide-answer-card p {
+  color: #bbb;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.8;
+}
+
+/* FAQ number badge */
+.faq-slide-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
+  color: #121212;
+  font-weight: 900;
+  font-size: 20px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(255,140,0,0.3);
+}
+
+/* ===== PROGRESS INDICATOR ===== */
+.faq-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff8c00, #ffb347);
+  z-index: 200;
+  transition: width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 0 20px rgba(255,140,0,0.4);
+}
+
+/* ===== SCROLL HINT ===== */
+.faq-scroll-hint {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  color: rgba(255,255,255,0.3);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: faqFadeInOut 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes faqFadeInOut {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* ===== KEYBOARD HINT ===== */
+.faq-keyboard-hint {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 100;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.faq-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  color: #888;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .faq-slide__content {
+    padding: 60px 20px 100px;
+  }
+
+  .faq-slide-answer-card {
+    padding: 30px 25px;
+  }
+
+  .faq-slides-nav {
+    bottom: 25px;
+  }
+
+  .faq-nav-btn {
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+
+  .faq-keyboard-hint {
+    display: none;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .faq-slide,
+  .faq-slide__img,
+  .faq-slide-answer-card,
+  .faq-nav-btn {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 </style>
 <base target="_blank">
 
 <!-- THREE.JS 3D PIPELINE -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
@@ -1323,11 +1646,10 @@ body {
       <li><a href="https://boilerhealth.github.io/blogs?" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Blogs</a></li>
       <li><a href="https://boilerhealth.github.io/Terms-Conditions/" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Terms & Conditions</a></li>
       <li style="position: relative;">
-        <a href="https://sites.google.com/view/my-boiler-health/contact-us/" id="contactDropdownToggle" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'" onclick="event.preventDefault(); document.getElementById('contactDropdown').classList.toggle('active');">More ▾</a>
+        <a href="https://sites.google.com/view/my-boiler-health/contact-us/" id="contactDropdownToggle" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Contact us ▾</a>
         <div id="contactDropdown" style="position: absolute; top: calc(100% + 10px); right: 0; background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%); border: 1px solid rgba(255,140,0,0.2); border-radius: 12px; padding: 8px 0; min-width: 180px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transform: translateY(-5px); transition: all 0.3s;">
           <a href="https://sites.google.com/view/my-boiler-health/contact-us/about-us" style="display: block; padding: 10px 20px; color: #aaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#ff8c00'; this.style.background='rgba(255,140,0,0.05)'" onmouseout="this.style.color='#aaa'; this.style.background='transparent'">About Us</a>
           <a href="https://sites.google.com/view/my-boiler-health/contact-us/privacy-policy" style="display: block; padding: 10px 20px; color: #aaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#ff8c00'; this.style.background='rgba(255,140,0,0.05)'" onmouseout="this.style.color='#aaa'; this.style.background='transparent'">Privacy Policy</a>
-           <a href="https://sites.google.com/view/my-boiler-health/contact-us" style="display: block; padding: 10px 20px; color: #aaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#ff8c00'; this.style.background='rgba(255,140,0,0.05)'" onmouseout="this.style.color='#aaa'; this.style.background='transparent'">Contact Us</a>
         </div>
       </li>
     </ul>
@@ -1568,87 +1890,130 @@ body {
   </div>
 </div>
 
-<!-- FAQ SECTION -->
-<div class="faq-section">
-  <div class="section-header reveal">
-    <h1 class="section-title">Frequently Asked <span>Questions</span></h1>
-    <p class="section-subtitle">Everything you need to know about Boiler Health insurance.</p>
+<!-- FAQ SLIDES SECTION -->
+
+<!-- FAQ SLIDES SECTION -->
+<section class="faq-slides-section" id="faqSlidesSection">
+  <div class="faq-slides-container" id="faqSlides">
+
+    <!-- Progress Bar -->
+    <div class="faq-progress-bar" id="faqProgressBar" style="width: 0%"></div>
+
+    <!-- Keyboard Hint -->
+    <div class="faq-keyboard-hint">
+      <span class="faq-key">←</span>
+      <span class="faq-key">→</span>
+      <span style="color:#666; font-size:12px;">or scroll</span>
+    </div>
+
+    <!-- Navigation -->
+    <div class="faq-slides-nav">
+      <button class="faq-nav-btn faq-nav-prev" id="faqPrevBtn">← Prev</button>
+      <span class="faq-slide-counter" id="faqSlideCounter">1 / 6</span>
+      <button class="faq-nav-btn faq-nav-next" id="faqNextBtn">Next →</button>
+    </div>
+
+    <!-- Scroll Hint -->
+    <div class="faq-scroll-hint">Scroll or use arrow keys to navigate</div>
+
+    <!-- Slide 1 -->
+    <section class="faq-slide is-active" data-index="0">
+      <div class="faq-slide__content">
+        <figure class="faq-slide__figure">
+          <div class="faq-slide__img" style="background-image: url(https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=2000&q=80)"></div>
+        </figure>
+        <div class="faq-slide__faq">
+          <div class="faq-slide-number">01</div>
+          <h2 class="faq-slide-question">What boilers do you cover?</h2>
+          <div class="faq-slide-answer-card">
+            <p>We cover gas, oil, and LPG boilers under all age. We do cover older boilers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="faq-slide " data-index="1">
+      <div class="faq-slide__content">
+        <figure class="faq-slide__figure">
+          <div class="faq-slide__img" style="background-image: url(https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=2000&q=80)"></div>
+        </figure>
+        <div class="faq-slide__faq">
+          <div class="faq-slide-number">02</div>
+          <h2 class="faq-slide-question">How fast is response?</h2>
+          <div class="faq-slide-answer-card">
+            <p>Average emergency response time is around 24 Hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="faq-slide " data-index="2">
+      <div class="faq-slide__content">
+        <figure class="faq-slide__figure">
+          <div class="faq-slide__img" style="background-image: url(https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=2000&q=80)"></div>
+        </figure>
+        <div class="faq-slide__faq">
+          <div class="faq-slide-number">03</div>
+          <h2 class="faq-slide-question">Can I cancel anytime?</h2>
+          <div class="faq-slide-answer-card">
+            <p>Yes, all plans are yearly and can be cancelled anytime as per terms & conditions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="faq-slide " data-index="3">
+      <div class="faq-slide__content">
+        <figure class="faq-slide__figure">
+          <div class="faq-slide__img" style="background-image: url(https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=2000&q=80)"></div>
+        </figure>
+        <div class="faq-slide__faq">
+          <div class="faq-slide-number">04</div>
+          <h2 class="faq-slide-question">Are there extra fees?</h2>
+          <div class="faq-slide-answer-card">
+            <p>Core and Comprehensive plans may include £35 excess fees applied for emergency assistance if you pay monthly. Absolute plan has none.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="faq-slide " data-index="4">
+      <div class="faq-slide__content">
+        <figure class="faq-slide__figure">
+          <div class="faq-slide__img" style="background-image: url(https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=2000&q=80)"></div>
+        </figure>
+        <div class="faq-slide__faq">
+          <div class="faq-slide-number">05</div>
+          <h2 class="faq-slide-question">Is there a waiting period?</h2>
+          <div class="faq-slide-answer-card">
+            <p>Yes, standard 14-day waiting period applies for new policies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6 -->
+    <section class="faq-slide " data-index="5">
+      <div class="faq-slide__content">
+        <figure class="faq-slide__figure">
+          <div class="faq-slide__img" style="background-image: url(https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=2000&q=80)"></div>
+        </figure>
+        <div class="faq-slide__faq">
+          <div class="faq-slide-number">06</div>
+          <h2 class="faq-slide-question">Pay monthly?</h2>
+          <div class="faq-slide-answer-card">
+            <p>Yes, You have to pay £35 excess fees for emergency assistance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
-
-  <div class="faq-container">
-    <div class="faq-item reveal">
-      <div class="faq-question">
-        What boilers do you cover?
-        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </div>
-      <div class="faq-answer">
-        <p>We cover gas, oil, and LPG boilers under all age. We do cover older boilers.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal reveal-delay-1">
-      <div class="faq-question">
-        How fast is response?
-        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </div>
-      <div class="faq-answer">
-        <p>Average emergency response time is around 24 Hours.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal reveal-delay-2">
-      <div class="faq-question">
-        Can I cancel anytime?
-        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </div>
-      <div class="faq-answer">
-        <p>Yes, all plans are yearly and can be cancelled anytime as per terms & conditions.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal reveal-delay-3">
-      <div class="faq-question">
-        Are there extra fees?
-        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </div>
-      <div class="faq-answer">
-        <p>Core and Comprehensive plans may include £35 excess fees applied for emergency assistance if you pay monthly. Absolute plan has none.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <div class="faq-question">
-        Is there a waiting period?
-        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </div>
-      <div class="faq-answer">
-        <p>Yes, standard 14-day waiting period applies for new policies.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal reveal-delay-1">
-      <div class="faq-question">
-        Pay monthly?
-        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </div>
-      <div class="faq-answer">
-        <p>Yes, You have to pay £35 excess fees for emergency assistance.</p>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
 
 <!-- CONTACT SECTION -->
 <div class="contact-section">
@@ -1803,6 +2168,66 @@ s0.parentNode.insertBefore(s1,s0);
 
 <!-- ===== 3D PIPELINE & ANIMATION SCRIPTS ===== -->
 <script>
+// ===== DROPDOWN LOGIC =====
+const dropdownToggle = document.getElementById('contactDropdownToggle');
+const dropdown = document.getElementById('contactDropdown');
+
+function closeDropdown() {
+    dropdown.classList.remove('active');
+}
+
+function toggleDropdown(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    dropdown.classList.toggle('active');
+}
+
+dropdownToggle.addEventListener('click', toggleDropdown);
+
+dropdown.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        closeDropdown();
+        if (window.innerWidth <= 768) {
+            const navUl = document.getElementById('mainNav');
+            const hamburger = document.getElementById('hamburgerToggle');
+            if (navUl && navUl.classList.contains('active')) {
+                navUl.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        }
+    });
+});
+
+document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && !dropdownToggle.contains(e.target)) {
+        closeDropdown();
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDropdown();
+});
+
+// ===== MOBILE MENU TOGGLE =====
+function toggleMobileMenu() {
+    const hamburger = document.getElementById('hamburgerToggle');
+    const navUl = document.getElementById('mainNav');
+    hamburger.classList.toggle('active');
+    navUl.classList.toggle('active');
+    
+    if (!navUl.classList.contains('active')) {
+        closeDropdown();
+    }
+}
+
+document.querySelectorAll('#mainNav > li > a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && link.id !== 'contactDropdownToggle') {
+            toggleMobileMenu();
+        }
+    });
+});
+
 // ===== THREE.JS 3D SCENE - OPTIMIZED LOW-POLY PIPELINE =====
 const sceneContainer = document.getElementById('particle-canvas');
 const scene = new THREE.Scene();
@@ -2129,30 +2554,188 @@ function toggleBilling() {
     setBilling(currentPeriod === 'annual' ? 'monthly' : 'annual');
 }
 
-// ===== MOBILE MENU TOGGLE =====
-function toggleMobileMenu() {
-    const hamburger = document.getElementById('hamburgerToggle');
-    const navUl = document.getElementById('mainNav');
-    hamburger.classList.toggle('active');
-    navUl.classList.toggle('active');
-    
-    // Close contact dropdown when closing menu
-    if (!navUl.classList.contains('active')) {
-        document.getElementById('contactDropdown').classList.remove('active');
-    }
-}
 
-// Close mobile menu when clicking a link
-document.querySelectorAll('#mainNav > li > a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-            // Don't close immediately for dropdown toggle
-            if (link.id !== 'contactDropdownToggle') {
-                toggleMobileMenu();
-            }
-        }
-    });
-});
+// ===== FAQ SLIDES NAVIGATION =====
+(function() {
+  'use strict';
+
+  const faqSlides = document.querySelectorAll('.faq-slide');
+  const faqPrevBtn = document.getElementById('faqPrevBtn');
+  const faqNextBtn = document.getElementById('faqNextBtn');
+  const faqCounter = document.getElementById('faqSlideCounter');
+  const faqProgressBar = document.getElementById('faqProgressBar');
+  const totalFaqSlides = faqSlides.length;
+  let faqCurrentIndex = 0;
+  let faqIsAnimating = false;
+  let faqScrollTimeout = null;
+
+  function updateFaqSlide(index) {
+    if (faqIsAnimating || index === faqCurrentIndex) return;
+    faqIsAnimating = true;
+
+    // Remove active from current
+    faqSlides[faqCurrentIndex].classList.remove('is-active');
+
+    // Add active to new
+    faqSlides[index].classList.add('is-active');
+
+    faqCurrentIndex = index;
+
+    // Update counter
+    faqCounter.textContent = (faqCurrentIndex + 1) + ' / ' + totalFaqSlides;
+
+    // Update progress bar
+    const progress = ((faqCurrentIndex + 1) / totalFaqSlides) * 100;
+    faqProgressBar.style.width = progress + '%';
+
+    // Update button states
+    faqPrevBtn.disabled = faqCurrentIndex === 0;
+    faqNextBtn.disabled = faqCurrentIndex === totalFaqSlides - 1;
+
+    // Reset animation lock
+    setTimeout(() => { faqIsAnimating = false; }, 700);
+  }
+
+  function faqGoNext() {
+    if (faqCurrentIndex < totalFaqSlides - 1) {
+      updateFaqSlide(faqCurrentIndex + 1);
+    }
+  }
+
+  function faqGoPrev() {
+    if (faqCurrentIndex > 0) {
+      updateFaqSlide(faqCurrentIndex - 1);
+    }
+  }
+
+  // Button events
+  faqNextBtn.addEventListener('click', faqGoNext);
+  faqPrevBtn.addEventListener('click', faqGoPrev);
+
+  // Keyboard navigation
+  const faqSlidesSection = document.getElementById('faqSlidesSection');
+
+  document.addEventListener('keydown', function(e) {
+    // Only handle keys when FAQ section is in viewport
+    const rect = faqSlidesSection.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+    if (!isVisible) return;
+
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      faqGoNext();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      faqGoPrev();
+    }
+  });
+
+  // Scroll / wheel navigation
+  let faqWheelDelta = 0;
+  const faqWheelThreshold = 50;
+
+  faqSlidesSection.addEventListener('wheel', function(e) {
+    e.preventDefault();
+
+    faqWheelDelta += e.deltaY;
+
+    clearTimeout(faqScrollTimeout);
+    faqScrollTimeout = setTimeout(() => {
+      faqWheelDelta = 0;
+    }, 150);
+
+    if (Math.abs(faqWheelDelta) > faqWheelThreshold) {
+      if (faqWheelDelta > 0) {
+        faqGoNext();
+      } else {
+        faqGoPrev();
+      }
+      faqWheelDelta = 0;
+    }
+  }, { passive: false });
+
+  // Touch swipe support
+  let faqTouchStartY = 0;
+  let faqTouchEndY = 0;
+
+  faqSlidesSection.addEventListener('touchstart', function(e) {
+    faqTouchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  faqSlidesSection.addEventListener('touchend', function(e) {
+    faqTouchEndY = e.changedTouches[0].screenY;
+    const diff = faqTouchStartY - faqTouchEndY;
+    const threshold = 50;
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        faqGoNext();
+      } else {
+        faqGoPrev();
+      }
+    }
+  }, { passive: true });
+
+  // Initialize
+  faqPrevBtn.disabled = true;
+  faqProgressBar.style.width = (100 / totalFaqSlides) + '%';
+
+})();
+
+</script>
+
+<!-- ===== ADDED: Page Title Notification for Chat Messages ===== -->
+<script>
+(function() {
+    var originalTitle = document.title;
+    var titleInterval = null;
+    var isBlinking = false;
+
+    function blinkTitle() {
+        if (isBlinking) return;
+        isBlinking = true;
+        var messages = ["🔴 New Message!", "Boiler Health - Premium Protection"];
+        var idx = 0;
+        titleInterval = setInterval(function() {
+            document.title = messages[idx % 2];
+            idx++;
+        }, 1200);
+    }
+
+    function stopBlinkTitle() {
+        if (titleInterval) clearInterval(titleInterval);
+        document.title = originalTitle;
+        isBlinking = false;
+    }
+
+    // Hook into existing Tawk_API if available
+    if (typeof Tawk_API !== 'undefined') {
+        var originalAgentCallback = Tawk_API.onChatMessageAgent;
+        var originalVisitorCallback = Tawk_API.onChatMessageVisitor;
+
+        Tawk_API.onChatMessageAgent = function() {
+            blinkTitle();
+            if (originalAgentCallback) originalAgentCallback.apply(this, arguments);
+        };
+
+        Tawk_API.onChatMessageVisitor = function() {
+            blinkTitle();
+            if (originalVisitorCallback) originalVisitorCallback.apply(this, arguments);
+        };
+
+        // Stop blinking when user comes back to tab or opens chat
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) stopBlinkTitle();
+        });
+
+        var originalMaximized = Tawk_API.onChatMaximized;
+        Tawk_API.onChatMaximized = function() {
+            stopBlinkTitle();
+            if (originalMaximized) originalMaximized.apply(this, arguments);
+        };
+    }
+})();
 </script>
 
 </body>
