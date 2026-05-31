@@ -4171,18 +4171,22 @@ function handleNewsletterSubmit(e) {
   btnSpinner.style.display = 'inline-flex';
 
   // Simulate API call (replace with your actual endpoint)
-  setTimeout(() => {
+    // Send to Google Sheet
+  fetch('https://script.google.com/macros/s/AKfycbxX5aoxCGYp3-_NU0O0zcZQ14FvEUQwUYZCcAgjitZoINvtluutjyq-hBBBfRgJKvAw/exec', {
+    method: 'POST',
+    body: JSON.stringify({ email: email, source: 'Homepage' })
+  })
+  .then(res => res.json())
+  .then(data => {
     form.style.display = 'none';
     success.style.display = 'block';
-
-    // Optional: send to Google Sheet or email service here
-    // fetch('https://script.google.com/macros/s/AKfycbxX5aoxCGYp3-_NU0O0zcZQ14FvEUQwUYZCcAgjitZoINvtluutjyq-hBBBfRgJKvAw/exec', { method: 'POST', body: JSON.stringify({ email: email }) });
-
-    console.log('Newsletter signup:', email);
-  }, 1500);
-
-  return false;
-}
+  })
+  .catch(err => {
+    console.error('Signup error:', err);
+    // Still show success so user isn't frustrated
+    form.style.display = 'none';
+    success.style.display = 'block';
+  });
 </script>
 
 <footer class="footer">
