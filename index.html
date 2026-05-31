@@ -29,10 +29,10 @@ body {
 .hero-section {
   position: relative;
   background: linear-gradient(135deg, #121212 0%, #1a1a1a 50%, #0d0d0d 100%);
-  padding: 100px 30px 80px;
+  padding: 60px 20px 50px;
   text-align: center;
-  border-radius: 0 0 24px 24px;
-  max-width: 1200px;
+  border-radius: 0 0 16px 16px;
+  max-width: 1000px;
   margin: 20px auto 0;
   overflow: hidden;
   box-shadow: 
@@ -63,8 +63,8 @@ body {
 
 /* Realistic boiler graphic SVG */
 .boiler-graphic {
-  width: 220px;
-  height: 280px;
+  width: 180px;
+  height: 220px;
   margin: 0 auto 30px;
   position: relative;
   z-index: 2;
@@ -75,7 +75,7 @@ body {
 
 @keyframes boilerFloat {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(1deg); }
+  50% { transform: translateY(-6px) rotate(1deg); }
 }
 
 .boiler-graphic svg {
@@ -89,8 +89,8 @@ body {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
-  height: 150px;
+  width: 160px;
+  height: 120px;
   pointer-events: none;
   z-index: 1;
 }
@@ -114,8 +114,8 @@ body {
 
 @keyframes steamRise {
   0% { transform: translateY(0) scale(1); opacity: 0.6; }
-  50% { transform: translateY(-60px) scale(2); opacity: 0.3; }
-  100% { transform: translateY(-120px) scale(3); opacity: 0; }
+  50% { transform: translateY(-40px) scale(2); opacity: 0.3; }
+  100% { transform: translateY(-80px) scale(3); opacity: 0; }
 }
 
 .hero-content {
@@ -124,10 +124,10 @@ body {
 }
 
 .hero-title {
-  font-size: clamp(36px, 6vw, 58px);
+  font-size: clamp(28px, 5vw, 44px);
   font-weight: 900;
   line-height: 1.1;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
   background: linear-gradient(135deg, #fff 0%, #ff8c00 50%, #ffb347 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -142,11 +142,11 @@ body {
 }
 
 .hero-subtitle {
-  font-size: clamp(16px, 2.5vw, 20px);
+  font-size: clamp(14px, 2vw, 18px);
   color: #aaa;
-  max-width: 700px;
-  margin: 0 auto 15px;
-  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 10px;
+  line-height: 1.5;
 }
 
 .trust-badge {
@@ -155,26 +155,26 @@ body {
   gap: 10px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 50px;
-  margin-bottom: 35px;
+  margin-bottom: 24px;
   /* REMOVED: backdrop-filter: blur(10px); - major scroll lag source */
   animation: fadeInUp 1s ease 0.5s both;
 }
 
 .trust-badge svg {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
 }
 
 /* Realistic 3D buttons */
 .btn-3d {
   display: inline-block;
-  padding: 16px 32px;
+  padding: 12px 24px;
   border-radius: 12px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 8px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
   overflow: hidden;
@@ -193,7 +193,7 @@ body {
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 
     0 8px 30px rgba(255,140,0,0.6),
     0 15px 40px rgba(255,140,0,0.3),
@@ -215,7 +215,7 @@ body {
 .btn-secondary:hover {
   border-color: rgba(255,140,0,0.6);
   color: #ff8c00;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(255,140,0,0.15);
 }
 
@@ -247,9 +247,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto 14px auto;
+  margin: 0 auto 10px auto;
   position: relative;
-  padding: 18px 48px;
+  padding: 12px 32px;
   border-radius: 50px;
   width: fit-content;
   max-width: 95%;
@@ -275,21 +275,21 @@ body {
   50% { transform: scale(1.03); box-shadow: 0 6px 22px rgba(255,140,0,0.5), 0 0 50px rgba(255,215,0,0.25), inset 0 1px 0 rgba(255,255,255,0.4); }
 }
 .deal-line {
-  font-size: clamp(12px, 2vw, 18px);
+  font-size: clamp(11px, 1.8vw, 16px);
   font-weight: 800;
-  letter-spacing: 4px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: #121212;
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   position: relative;
   z-index: 1;
 }
 .deal-headline {
-  font-size: clamp(32px, 7vw, 64px);
+  font-size: clamp(24px, 5vw, 48px);
   font-weight: 900;
   line-height: 1.05;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: #fff;
   display: inline-block;
@@ -301,7 +301,7 @@ body {
   color: #121212;
   background: linear-gradient(135deg, #ffd700 0%, #ffb347 50%, #ff8c00 100%);
   background-size: 200% 200%;
-  padding: 4px 14px;
+  padding: 2px 4px;
   border-radius: 10px;
   margin-left: 8px;
   box-shadow: 0 3px 12px rgba(255,140,0,0.4), 0 0 20px rgba(255,215,0,0.2), inset 0 1px 0 rgba(255,255,255,0.3);
@@ -355,10 +355,10 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-top: 10px;
+  margin-top: 6px;
   position: relative;
   z-index: 1;
-  transform: scale(0.72);
+  transform: scale(0.65);
   transform-origin: center top;
 }
 .timer-unit {
@@ -368,12 +368,12 @@ body {
   background: linear-gradient(145deg, #121212 0%, #1a1a1a 100%);
   border: 1px solid rgba(255,140,0,0.25);
   border-radius: 10px;
-  padding: 8px 14px;
-  min-width: 56px;
+  padding: 6px 10px;
+  min-width: 48px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 .timer-unit span {
-  font-size: clamp(18px, 3vw, 28px);
+  font-size: clamp(16px, 2.5vw, 24px);
   font-weight: 900;
   color: #ffd700;
   line-height: 1;
@@ -381,15 +381,15 @@ body {
   text-shadow: 0 0 15px rgba(255,215,0,0.4);
 }
 .timer-unit label {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: rgba(255,255,255,0.5);
   margin-top: 4px;
 }
 .timer-sep {
-  font-size: clamp(18px, 3vw, 28px);
+  font-size: clamp(16px, 2.5vw, 24px);
   font-weight: 900;
   color: #fff;
   opacity: 0.6;
@@ -400,15 +400,15 @@ body {
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  margin-top: 50px;
+  gap: 16px;
+  margin-top: 32px;
   position: relative;
   z-index: 2;
 }
 
 .feature-card {
   background: linear-gradient(145deg, rgba(28,28,28,0.9) 0%, rgba(20,20,20,0.95) 100%);
-  padding: 35px 30px;
+  padding: 24px 20px;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.06);
   /* REMOVED: backdrop-filter: blur(20px); - kills scroll performance */
@@ -431,7 +431,7 @@ body {
 }
 
 .feature-card:hover {
-  transform: translateY(-10px) scale(1.02);
+  transform: translateY(-6px) scale(1.02);
   box-shadow: 
     0 20px 50px rgba(0,0,0,0.5),
     0 0 30px rgba(255,140,0,0.1),
@@ -445,23 +445,23 @@ body {
 
 .feature-card h3 {
   color: #ff8c00;
-  font-size: 22px;
-  margin-bottom: 12px;
+  font-size: 8px;
+  margin-bottom: 4px;
   position: relative;
   z-index: 1;
 }
 
 .feature-card p {
   color: #bbb;
-  line-height: 1.7;
+  line-height: 1.5;
   position: relative;
   z-index: 1;
 }
 
 .feature-icon {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 18px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 4px;
   background: linear-gradient(135deg, rgba(255,140,0,0.2) 0%, rgba(255,140,0,0.05) 100%);
   border-radius: 12px;
   display: flex;
@@ -475,10 +475,10 @@ body {
 /* ===== PLANS SECTION - REALISTIC ===== */
 .plans-section {
   background: linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%);
-  padding: 80px 30px;
-  border-radius: 24px;
-  max-width: 1200px;
-  margin: 40px auto;
+  padding: 40px 16px;
+  border-radius: 16px;
+  max-width: 1000px;
+  margin: 24px auto;
   position: relative;
   overflow: hidden;
 }
@@ -487,22 +487,22 @@ body {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 200px;
+  height: 150px;
   background: linear-gradient(180deg, rgba(255,140,0,0.03) 0%, transparent 100%);
   pointer-events: none;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 32px;
   position: relative;
   z-index: 1;
 }
 
 .section-title {
-  font-size: clamp(32px, 5vw, 52px);
+  font-size: clamp(26px, 4vw, 42px);
   font-weight: 900;
-  margin-bottom: 15px;
+  margin-bottom: 4px;
   color: #121212;
 }
 
@@ -511,9 +511,9 @@ body {
 }
 
 .section-subtitle {
-  font-size: 18px;
+  font-size: 8px;
   color: #666;
-  max-width: 600px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -521,11 +521,11 @@ body {
   display: inline-block;
   background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
   color: #fff;
-  padding: 6px 16px;
+  padding: 2px 4px;
   border-radius: 20px;
   font-weight: 700;
-  font-size: 14px;
-  margin-top: 10px;
+  font-size: 8px;
+  margin-top: 6px;
   box-shadow: 0 4px 15px rgba(255,140,0,0.3);
   animation: pulse 2s ease-in-out infinite;
 }
@@ -538,14 +538,14 @@ body {
 .plans-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 20px;
   position: relative;
   z-index: 1;
 }
 
 .plan-card {
   background: #fff;
-  padding: 40px 35px;
+  padding: 28px 24px;
   border-radius: 20px;
   border: 2px solid #e2e2e2;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -566,7 +566,7 @@ body {
 }
 
 .plan-card:hover {
-  transform: translateY(-12px) scale(1.02);
+  transform: translateY(-6px) scale(1.02);
   box-shadow: 0 25px 60px rgba(0,0,0,0.15);
   border-color: rgba(255,140,0,0.3);
 }
@@ -592,29 +592,29 @@ body {
   display: inline-block;
   background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
   color: #121212;
-  padding: 6px 14px;
+  padding: 4px 10px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 8px;
   font-weight: 800;
-  margin-bottom: 15px;
+  margin-bottom: 4px;
   box-shadow: 0 4px 15px rgba(255,140,0,0.3);
 }
 
 .plan-name {
-  font-size: 28px;
+  font-size: 8px;
   font-weight: 800;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .plan-price {
-  font-size: 44px;
+  font-size: 32px;
   color: #ff8c00;
   font-weight: 900;
   margin: 15px 0;
 }
 
 .plan-price span {
-  font-size: 18px;
+  font-size: 8px;
   color: #666;
   font-weight: 400;
 }
@@ -630,7 +630,7 @@ body {
 }
 
 .plan-features li {
-  padding: 10px 0;
+  padding: 8px 0;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   color: #444;
   display: flex;
@@ -647,18 +647,18 @@ body {
   content: '✓';
   color: #ff8c00;
   font-weight: 900;
-  font-size: 14px;
+  font-size: 8px;
 }
 
 .plan-btn {
   display: block;
   text-align: center;
-  padding: 14px;
+  padding: 3px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: 700;
   transition: all 0.3s;
-  margin-top: 25px;
+  margin-top: 16px;
 }
 
 .plan-btn-dark {
@@ -686,10 +686,10 @@ body {
 /* ===== ABOUT SECTION - REALISTIC ===== */
 .about-section {
   background: linear-gradient(145deg, #121212 0%, #0d0d0d 100%);
-  padding: 80px 30px;
-  border-radius: 24px;
-  max-width: 1200px;
-  margin: 40px auto;
+  padding: 40px 16px;
+  border-radius: 16px;
+  max-width: 1000px;
+  margin: 24px auto;
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.03);
@@ -698,12 +698,12 @@ body {
 .about-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  gap: 16px;
 }
 
 .about-card {
   background: linear-gradient(145deg, rgba(28,28,28,0.9) 0%, rgba(18,18,18,0.95) 100%);
-  padding: 35px;
+  padding: 24px;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.05);
   transition: all 0.4s;
@@ -723,7 +723,7 @@ body {
 }
 
 .about-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: 0 15px 40px rgba(0,0,0,0.4);
   border-color: rgba(255,140,0,0.15);
 }
@@ -734,29 +734,29 @@ body {
 
 .about-card h3 {
   color: #ff8c00;
-  font-size: 24px;
-  margin-bottom: 15px;
+  font-size: 8px;
+  margin-bottom: 4px;
 }
 
 .about-card p {
   color: #bbb;
-  line-height: 1.8;
+  line-height: 1.5;
 }
 
 /* ===== FAQ SECTION - REALISTIC ===== */
 .faq-section {
   background: linear-gradient(180deg, #f5f5f5 0%, #f0f0f0 100%);
-  padding: 80px 30px;
-  border-radius: 24px;
-  max-width: 1000px;
-  margin: 40px auto;
+  padding: 40px 16px;
+  border-radius: 16px;
+  max-width: 800px;
+  margin: 24px auto;
 }
 
 .faq-item {
   background: #fff;
   border: 2px solid #e8e8e8;
   border-radius: 14px;
-  margin-bottom: 15px;
+  margin-bottom: 4px;
   overflow: hidden;
   transition: all 0.3s;
   box-shadow: 0 4px 15px rgba(0,0,0,0.03);
@@ -769,14 +769,14 @@ body {
 }
 
 .faq-question {
-  padding: 22px 25px;
+  padding: 16px 20px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
   color: #222;
-  font-size: 17px;
+  font-size: 8px;
   transition: color 0.3s;
 }
 
@@ -785,8 +785,8 @@ body {
 }
 
 .faq-icon {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   transition: transform 0.3s;
   color: #ff8c00;
 }
@@ -799,7 +799,7 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease;
-  padding: 0 25px;
+  padding: 0 16px;
 }
 
 .faq-item.active .faq-answer {
@@ -809,16 +809,16 @@ body {
 
 .faq-answer p {
   color: #555;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 /* ===== CONTACT SECTION - REALISTIC ===== */
 .contact-section {
   background: linear-gradient(145deg, #121212 0%, #0a0a0a 100%);
-  padding: 80px 30px;
-  border-radius: 24px;
-  max-width: 900px;
-  margin: 40px auto;
+  padding: 40px 16px;
+  border-radius: 16px;
+  max-width: 720px;
+  margin: 24px auto;
   position: relative;
   overflow: hidden;
 }
@@ -827,7 +827,7 @@ body {
   content: '';
   position: absolute;
   top: 50%; left: 50%;
-  width: 600px; height: 600px;
+  width: 400px; height: 600px;
   transform: translate(-50%, -50%);
   background: radial-gradient(circle, rgba(255,140,0,0.05) 0%, transparent 60%);
   pointer-events: none;
@@ -835,10 +835,10 @@ body {
 
 .contact-card {
   background: linear-gradient(145deg, rgba(28,28,28,0.95) 0%, rgba(20,20,20,0.98) 100%);
-  padding: 35px;
+  padding: 24px;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.06);
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   position: relative;
   z-index: 1;
   transition: all 0.3s;
@@ -846,26 +846,26 @@ body {
 
 .contact-card:hover {
   border-color: rgba(255,140,0,0.2);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .contact-card h2 {
   color: #ff8c00;
-  margin-bottom: 10px;
-  font-size: 22px;
+  margin-bottom: 4px;
+  font-size: 8px;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 14px 18px;
-  margin-bottom: 12px;
+  padding: 10px 14px;
+  margin-bottom: 4px;
   border: 2px solid rgba(255,255,255,0.1);
   border-radius: 10px;
   background: rgba(255,255,255,0.05);
   color: #fff;
-  font-size: 15px;
+  font-size: 8px;
   transition: all 0.3s;
   outline: none;
 }
@@ -884,11 +884,11 @@ body {
 
 .contact-btn {
   width: 100%;
-  padding: 16px;
+  padding: 3px;
   background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
   color: #121212;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 8px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -904,20 +904,20 @@ body {
 /* ===== CTA SECTION - REALISTIC ===== */
 .cta-section {
   background: linear-gradient(145deg, #121212 0%, #0d0d0d 100%);
-  padding: 100px 30px;
+  padding: 60px 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  max-width: 1200px;
-  margin: 40px auto;
-  border-radius: 24px;
+  max-width: 1000px;
+  margin: 24px auto;
+  border-radius: 16px;
   
 }
 
 .cta-glow {
   position: absolute;
   top: 50%; left: 50%;
-  width: 800px; height: 800px;
+  width: 500px; height: 500px;
   transform: translate(-50%, -50%);
   background: radial-gradient(circle, rgba(255,140,0,0.08) 0%, transparent 60%);
   animation: ctaGlow 6s ease-in-out infinite;
@@ -933,17 +933,17 @@ body {
 .footer {
   background: #0a0a0a;
   border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 60px 30px 30px;
-  max-width: 1200px;
-  margin: 40px auto 0;
-  border-radius: 24px 24px 0 0;
+  padding: 40px 20px 20px;
+  max-width: 1000px;
+  margin: 24px auto 0;
+  border-radius: 16px 16px 0 0;
   position: relative;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
+  gap: 2rem;
   margin-bottom: 3rem;
 }
 
@@ -955,7 +955,7 @@ body {
 }
 
 .footer-brand-icon {
-  width: 36px; height: 36px;
+  width: 28px; height: 28px;
   background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
   border-radius: 10px;
   display: flex;
@@ -963,28 +963,28 @@ body {
   justify-content: center;
   font-weight: 900;
   color: #121212;
-  font-size: 18px;
+  font-size: 8px;
   box-shadow: 0 4px 15px rgba(255,140,0,0.3);
 }
 
 .footer-brand-text {
   font-weight: 700;
   color: #fff;
-  font-size: 20px;
+  font-size: 8px;
 }
 
 .footer-desc {
   color: rgba(255,255,255,0.4);
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 8px;
+  line-height: 1.5;
 }
 
 .footer-heading {
   color: #777;
-  font-size: 12px;
-  letter-spacing: 2px;
+  font-size: 8px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 4px;
   font-weight: 700;
 }
 
@@ -997,7 +997,7 @@ body {
 .footer-links a {
   color: #aaa;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 8px;
   transition: all 0.3s;
   position: relative;
   display: inline-block;
@@ -1026,13 +1026,13 @@ body {
   padding-top: 25px;
   text-align: center;
   color: rgba(255,255,255,0.3);
-  font-size: 13px;
+  font-size: 8px;
 }
 
 /* ===== ANIMATIONS ===== */
 .reveal {
   opacity: 0;
-  transform: translateY(60px);
+  transform: translateY(40px);
   transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -1053,7 +1053,7 @@ body {
 
 @keyframes gentleFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
 }
 
 /* Glow pulse for important elements */
@@ -1071,9 +1071,9 @@ body {
   display: inline-block;
   background: #ff3b30;
   color: #fff;
-  font-size: 11px;
+  font-size: 8px;
   font-weight: 800;
-  padding: 2px 6px;
+  padding: 2px 4px;
   border-radius: 50%;
   margin-left: 6px;
   vertical-align: middle;
@@ -1091,7 +1091,7 @@ body {
   position: absolute;
   bottom: calc(100% + 10px);
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
+  transform: translateX(-50%) translateY(6px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -1107,11 +1107,11 @@ body {
   background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
   border: 1px solid rgba(255,140,0,0.4);
   border-radius: 12px;
-  padding: 12px 18px;
+  padding: 10px 14px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 20px rgba(255,140,0,0.1);
   position: relative;
   color: #fff;
-  font-size: 13px;
+  font-size: 8px;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
@@ -1132,7 +1132,7 @@ body {
   top: 4px;
   right: 8px;
   color: #888;
-  font-size: 14px;
+  font-size: 8px;
   cursor: pointer;
   line-height: 1;
   transition: color 0.2s;
@@ -1178,11 +1178,11 @@ body {
   display: inline-block;
   background: linear-gradient(135deg, #ff3b30 0%, #ff6b00 100%);
   color: #fff;
-  padding: 4px 12px;
+  padding: 2px 4px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 8px;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   box-shadow: 0 2px 10px rgba(255,59,48,0.3);
   animation: badgePulse 2s ease-in-out infinite;
 }
@@ -1227,8 +1227,8 @@ body {
   bottom: -100px;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
-  height: 200px;
+  width: 400px;
+  height: 150px;
   background: radial-gradient(ellipse, rgba(255,140,0,0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 1;
@@ -1319,16 +1319,16 @@ body {
   border: 2px solid #e2e2e2;
   border-radius: 50px;
   padding: 6px 6px;
-  margin-top: 18px;
+  margin-top: 6px;
   position: relative;
   z-index: 1;
 }
 
 .price-toggle-wrap .toggle-label {
-  font-size: 14px;
+  font-size: 8px;
   font-weight: 700;
   color: #666;
-  padding: 0 10px;
+  padding: 0 4px;
   cursor: pointer;
   transition: color 0.3s;
   user-select: none;
@@ -1340,8 +1340,8 @@ body {
 
 .price-toggle-wrap .toggle-switch {
   position: relative;
-  width: 44px;
-  height: 24px;
+  width: 36px;
+  height: 16px;
   background: #ccc;
   border-radius: 50px;
   cursor: pointer;
@@ -1358,8 +1358,8 @@ body {
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   background: #fff;
   border-radius: 50%;
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -1371,9 +1371,9 @@ body {
 }
 
 .contract-note {
-  font-size: 12px;
+  font-size: 8px;
   color: #888;
-  margin-top: 8px;
+  margin-top: 6px;
   font-weight: 500;
 }
 
@@ -1385,12 +1385,12 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 6px;
+  padding: 3px;
   z-index: 1001;
 }
 
@@ -1454,8 +1454,8 @@ body {
   
   header nav ul li a {
     display: block;
-    padding: 14px 20px;
-    font-size: 15px;
+    padding: 10px 16px;
+    font-size: 8px;
     border-bottom: 1px solid rgba(255,255,255,0.03);
   }
   
@@ -1483,7 +1483,7 @@ body {
   #contactDropdown.active {
     opacity: 1 !important;
     pointer-events: auto !important;
-    max-height: 200px;
+    max-height: 150px;
     padding: 8px 0 !important;
   }
   
@@ -1498,7 +1498,7 @@ body {
 .faq-slides-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 600px;
   overflow: hidden;
   font-family: 'Segoe UI', Arial, sans-serif;
   background: #0a0a0a;
@@ -1525,10 +1525,10 @@ body {
 }
 
 .faq-nav-btn {
-  padding: 14px 28px;
+  padding: 8px 16px;
   border-radius: 12px;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 8px;
   cursor: pointer;
   border: 2px solid rgba(255,140,0,0.4);
   background: rgba(18,18,18,0.9);
@@ -1559,10 +1559,10 @@ body {
 
 .faq-slide-counter {
   color: #777;
-  font-size: 14px;
+  font-size: 8px;
   font-weight: 600;
   margin: 0 8px;
-  min-width: 50px;
+  min-width: 40px;
   text-align: center;
 }
 
@@ -1596,7 +1596,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 40px 120px;
+  padding: 50px 20px 100px;
 }
 
 /* Background image */
@@ -1643,14 +1643,14 @@ body {
 .faq-slide__faq {
   position: relative;
   z-index: 2;
-  max-width: 900px;
+  max-width: 720px;
   width: 100%;
   text-align: center;
 }
 
 /* Question styling */
 .faq-slide-question {
-  font-size: clamp(28px, 5vw, 52px);
+  font-size: clamp(22px, 4vw, 40px);
   font-weight: 900;
   line-height: 1.15;
   margin-bottom: 40px;
@@ -1669,7 +1669,7 @@ body {
 /* Answer card */
 .faq-slide-answer-card {
   background: linear-gradient(145deg, rgba(28,28,28,0.95) 0%, rgba(18,18,18,0.98) 100%);
-  padding: 40px 50px;
+  padding: 28px 32px;
   border-radius: 20px;
   border: 1px solid rgba(255,255,255,0.06);
   box-shadow: 
@@ -1678,7 +1678,7 @@ body {
   text-align: left;
   position: relative;
   overflow: hidden;
-  transform: translateY(30px);
+  transform: translateY(20px);
   opacity: 0;
   transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0.2s;
 }
@@ -1698,8 +1698,8 @@ body {
 
 .faq-slide-answer-card p {
   color: #bbb;
-  font-size: clamp(16px, 2vw, 20px);
-  line-height: 1.8;
+  font-size: clamp(13px, 1.6vw, 16px);
+  line-height: 1.5;
 }
 
 /* FAQ number badge */
@@ -1707,14 +1707,14 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
   color: #121212;
   font-weight: 900;
-  font-size: 20px;
+  font-size: 8px;
   border-radius: 14px;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   box-shadow: 0 4px 15px rgba(255,140,0,0.3);
 }
 
@@ -1738,8 +1738,8 @@ body {
   transform: translateX(-50%);
   z-index: 100;
   color: rgba(255,255,255,0.3);
-  font-size: 12px;
-  letter-spacing: 2px;
+  font-size: 8px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   animation: faqFadeInOut 3s ease-in-out infinite;
   pointer-events: none;
@@ -1765,14 +1765,14 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 32px;
-  height: 32px;
-  padding: 0 8px;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 4px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 8px;
   color: #888;
-  font-size: 12px;
+  font-size: 8px;
   font-weight: 700;
   font-family: monospace;
 }
@@ -1816,11 +1816,11 @@ body {
   display: inline-block;
   background: linear-gradient(135deg, #ff3b30 0%, #ff6b00 100%);
   color: #fff;
-  padding: 4px 12px;
+  padding: 2px 4px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 8px;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   box-shadow: 0 2px 10px rgba(255,59,48,0.3);
   animation: badgePulse 2s ease-in-out infinite;
 }
@@ -1828,11 +1828,11 @@ body {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .faq-slide__content {
-    padding: 60px 20px 100px;
+    padding: 40px 16px 80px;
   }
 
   .faq-slide-answer-card {
-    padding: 30px 25px;
+    padding: 20px 20px;
   }
 
   .faq-slides-nav {
@@ -1840,8 +1840,8 @@ body {
   }
 
   .faq-nav-btn {
-    padding: 12px 20px;
-    font-size: 13px;
+    padding: 10px 16px;
+    font-size: 8px;
   }
 
   .faq-keyboard-hint {
@@ -1864,10 +1864,10 @@ body {
 /* ===== PRICE COMPARISON TABLE - ADVANCED ===== */
 .comparison-section {
   background: linear-gradient(145deg, #121212 0%, #0d0d0d 100%);
-  padding: 50px 20px;
-  border-radius: 24px;
-  max-width: 1100px;
-  margin: 40px auto;
+  padding: 40px 16px;
+  border-radius: 16px;
+  max-width: 900px;
+  margin: 24px auto;
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.03);
@@ -1878,7 +1878,7 @@ body {
   position: absolute;
   top: 0; left: 50%;
   transform: translateX(-50%);
-  width: 600px; height: 200px;
+  width: 400px; height: 150px;
   background: radial-gradient(ellipse, rgba(255,140,0,0.06) 0%, transparent 70%);
   pointer-events: none;
 }
@@ -1906,7 +1906,7 @@ body {
   padding: 16px 10px;
   text-align: center;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 8px;
   border-bottom: 2px solid rgba(255,140,0,0.3);
   position: sticky;
   top: 0;
@@ -1914,7 +1914,7 @@ body {
 
 .comparison-table thead th.comp-feature-header {
   text-align: left;
-  font-size: 14px;
+  font-size: 8px;
   color: #ff8c00;
   width: 22%;
   border-top-left-radius: 16px;
@@ -1930,7 +1930,7 @@ body {
 }
 
 .comp-brand-logo {
-  width: 36px; height: 36px;
+  width: 28px; height: 28px;
   background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
   border-radius: 10px;
   display: flex;
@@ -1938,13 +1938,13 @@ body {
   justify-content: center;
   font-weight: 900;
   color: #121212;
-  font-size: 18px;
+  font-size: 8px;
   margin: 0 auto 6px;
   box-shadow: 0 4px 15px rgba(255,140,0,0.3);
 }
 
 .comp-brand-name {
-  font-size: 12px;
+  font-size: 8px;
   font-weight: 700;
   color: #fff;
 }
@@ -1953,9 +1953,9 @@ body {
   display: inline-block;
   background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
   color: #121212;
-  padding: 2px 8px;
+  padding: 2px 4px;
   border-radius: 10px;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1978,7 +1978,7 @@ body {
   padding: 12px 10px;
   text-align: center;
   color: #bbb;
-  font-size: 13px;
+  font-size: 8px;
   border-bottom: 1px solid rgba(255,255,255,0.04);
   vertical-align: middle;
 }
@@ -2015,28 +2015,28 @@ body {
 
 .comp-rating {
   display: block;
-  font-size: 20px;
+  font-size: 8px;
   font-weight: 900;
   color: #ffd700;
 }
 
 .comp-reviews {
   display: block;
-  font-size: 10px;
+  font-size: 8px;
   color: #888;
   margin-top: 2px;
 }
 
 .comp-best-price {
   display: block;
-  font-size: 20px;
+  font-size: 8px;
   font-weight: 900;
   color: #ff8c00;
 }
 
 .comp-price {
   display: block;
-  font-size: 16px;
+  font-size: 8px;
   font-weight: 700;
   color: #fff;
 }
@@ -2045,9 +2045,9 @@ body {
   display: inline-block;
   background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
   color: #121212;
-  padding: 3px 10px;
+  padding: 2px 4px;
   border-radius: 10px;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -2059,8 +2059,8 @@ body {
   background: rgba(0,255,136,0.1);
   color: #00ff88;
   font-weight: 700;
-  font-size: 12px;
-  padding: 3px 10px;
+  font-size: 8px;
+  padding: 2px 4px;
   border-radius: 20px;
   border: 1px solid rgba(0,255,136,0.2);
 }
@@ -2070,30 +2070,30 @@ body {
   background: rgba(255,59,48,0.1);
   color: #ff3b30;
   font-weight: 700;
-  font-size: 12px;
-  padding: 3px 10px;
+  font-size: 8px;
+  padding: 2px 4px;
   border-radius: 20px;
   border: 1px solid rgba(255,59,48,0.2);
 }
 
 @media (max-width: 768px) {
-  .comparison-table { font-size: 12px; min-width: 650px; }
+  .comparison-table { font-size: 8px; min-width: 650px; }
   .comparison-table thead th, .comparison-table tbody td { padding: 8px 4px; }
-  .comp-best-price, .comp-rating { font-size: 16px; }
-  .comp-price { font-size: 14px; }
+  .comp-best-price, .comp-rating { font-size: 8px; }
+  .comp-price { font-size: 8px; }
 }
 @media (max-width: 768px) {
-  .comparison-table { font-size: 12px; }
+  .comparison-table { font-size: 8px; }
   .comparison-table thead th, .comparison-table tbody td { padding: 8px 4px; }
-  .comp-best-price, .comp-rating { font-size: 14px; }
+  .comp-best-price, .comp-rating { font-size: 8px; }
 }
 @media (max-width: 768px) {
-  .comparison-table { font-size: 12px; }
+  .comparison-table { font-size: 8px; }
   .comparison-table thead th, .comparison-table tbody td { padding: 8px 4px; }
-  .comp-best-price, .comp-rating { font-size: 14px; }
+  .comp-best-price, .comp-rating { font-size: 8px; }
 }
   .comparison-table thead th, .comparison-table tbody td { padding: 12px 8px; }
-  .comp-best-price, .comp-rating { font-size: 16px; }
+  .comp-best-price, .comp-rating { font-size: 8px; }
 }
 </style>
 <base target="_blank">
@@ -2119,29 +2119,30 @@ body {
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
 <!-- HEADER NAVIGATION -->
 <header style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(10,10,10,0.95); border-bottom: 1px solid rgba(255,140,0,0.1); backdrop-filter: blur(10px);">
-  <nav style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 30px;">
+  <nav style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 30px;">
     <a href="https://boilerhealth.github.io/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-      <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #121212; font-size: 16px;">B</div>
-      <span style="font-weight: 700; color: #fff; font-size: 18px;">Boiler Health</span>
+      <div style="width: 28px; height: 28px; background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #121212; font-size: 8px;">B</div>
+      <span style="font-weight: 700; color: #fff; font-size: 8px;">Boiler Health</span>
     </a>
     <ul id="mainNav" style="display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0;">
-      <li><a href="https://boilerhealth.github.io/" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Home</a></li>
-      <li><a href="https://boilerhealth.github.io/plans/" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Plans</a></li>
-      <li><a href="https://boilerhealth.github.io/CYBH/" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">CYBH</a></li>
-      <li><a href="https://boilerhealth.github.io/SYBD/" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">SYBD</a></li>
-      <li><a href="https://boilerhealth.github.io/Claim/" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Claim</a></li>
-      <li><a href="https://boilerhealth.github.io/blogs?" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Blogs</a></li>
-      <li><a href="https://boilerhealth.github.io/Terms-Conditions/" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Terms & Conditions</a></li>
+      <li><a href="https://boilerhealth.github.io/" style="color: #aaa; text-decoration: none; font-size: 8px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Home</a></li>
+      <li><a href="https://boilerhealth.github.io/plans/" style="color: #aaa; text-decoration: none; font-size: 8px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Plans</a></li>
+      <li><a href="https://boilerhealth.github.io/CYBH/" style="color: #aaa; text-decoration: none; font-size: 8px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">CYBH</a></li>
+      <li><a href="https://boilerhealth.github.io/SYBD/" style="color: #aaa; text-decoration: none; font-size: 8px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">SYBD</a></li>
+      <li><a href="https://boilerhealth.github.io/Claim/" style="color: #aaa; text-decoration: none; font-size: 8px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Claim</a></li>
+      <li><a href="https://boilerhealth.github.io/blogs?" style="color: #aaa; text-decoration: none; font-size: 8px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Blogs</a></li>
+      <li><a href="https://boilerhealth.github.io/Terms-Conditions/" style="color: #aaa; text-decoration: none; font-size: 8px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Terms & Conditions</a></li>
       <li style="position: relative;">
-        <a href="https://sites.google.com/view/my-boiler-health/contact-us/" id="contactDropdownToggle" style="color: #aaa; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Contact us ▾</a>
-        <div id="contactDropdown" style="position: absolute; top: calc(100% + 10px); right: 0; background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%); border: 1px solid rgba(255,140,0,0.2); border-radius: 12px; padding: 8px 0; min-width: 180px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transform: translateY(-5px); transition: all 0.3s;">
-          <a href="https://sites.google.com/view/my-boiler-health/contact-us/about-us" style="display: block; padding: 10px 20px; color: #aaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#ff8c00'; this.style.background='rgba(255,140,0,0.05)'" onmouseout="this.style.color='#aaa'; this.style.background='transparent'">About Us</a>
-          <a href="https://sites.google.com/view/my-boiler-health/contact-us/privacy-policy" style="display: block; padding: 10px 20px; color: #aaa; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#ff8c00'; this.style.background='rgba(255,140,0,0.05)'" onmouseout="this.style.color='#aaa'; this.style.background='transparent'">Privacy Policy</a>
+        <a href="https://sites.google.com/view/my-boiler-health/contact-us/" id="contactDropdownToggle" style="color: #aaa; text-decoration: none; font-size: 8px; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#aaa'">Contact us ▾</a>
+        <div id="contactDropdown" style="position: absolute; top: calc(100% + 10px); right: 0; background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%); border: 1px solid rgba(255,140,0,0.2); border-radius: 12px; padding: 6px 0; min-width: 180px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transform: translateY(-5px); transition: all 0.3s;">
+          <a href="https://sites.google.com/view/my-boiler-health/contact-us/about-us" style="display: block; padding: 8px 16px; color: #aaa; text-decoration: none; font-size: 8px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#ff8c00'; this.style.background='rgba(255,140,0,0.05)'" onmouseout="this.style.color='#aaa'; this.style.background='transparent'">About Us</a>
+          <a href="https://sites.google.com/view/my-boiler-health/contact-us/privacy-policy" style="display: block; padding: 8px 16px; color: #aaa; text-decoration: none; font-size: 8px; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.color='#ff8c00'; this.style.background='rgba(255,140,0,0.05)'" onmouseout="this.style.color='#aaa'; this.style.background='transparent'">Privacy Policy</a>
         </div>
       </li>
     </ul>
@@ -2153,7 +2154,7 @@ body {
   </nav>
 </header>
 <!-- Spacer for fixed header -->
-<div style="height: 60px;"></div>
+<div style="height: 40px;"></div>
 
 
 
@@ -2700,7 +2701,7 @@ body {
   </div>
 
   <div style="text-align:center; margin-top:35px;" class="reveal">
-    <a href="https://boilerhealth.github.io/plans/" class="btn-3d btn-primary">Get the Best Deal</a>
+    <a href="https://sites.google.com/view/my-boiler-health/home/get-protected?authuser=1" class="btn-3d btn-primary">Get the Best Deal</a>
   </div>
 </div>
 <!-- CONTACT SECTION -->
@@ -2788,10 +2789,10 @@ body {
 /* ===== BLOG SLIDER STYLES ===== */
 .blog-slider-section {
   background: linear-gradient(145deg, #0d0d0d 0%, #121212 50%, #1a1209 100%);
-  padding: 80px 30px;
-  border-radius: 24px;
-  max-width: 1200px;
-  margin: 40px auto;
+  padding: 40px 16px;
+  border-radius: 16px;
+  max-width: 1000px;
+  margin: 24px auto;
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.03);
@@ -2802,16 +2803,16 @@ body {
   position: absolute;
   top: 0; left: 50%;
   transform: translateX(-50%);
-  width: 600px; height: 200px;
+  width: 400px; height: 150px;
   background: radial-gradient(ellipse, rgba(255,140,0,0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .blog-slider-wrapper {
   position: relative;
-  max-width: 1100px;
-  margin: 50px auto 0;
-  padding: 0 50px;
+  max-width: 900px;
+  margin: 32px auto 0;
+  padding: 0 24px;
 }
 
 .blog-slider-container {
@@ -2821,7 +2822,7 @@ body {
 
 .blog-slider-track {
   display: flex;
-  gap: 25px;
+  gap: 16px;
   transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   will-change: transform;
 }
@@ -2840,14 +2841,14 @@ body {
 }
 
 .blog-card:hover {
-  transform: translateY(-10px) scale(1.02);
+  transform: translateY(-6px) scale(1.02);
   border-color: rgba(255,140,0,0.2);
   box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(255,140,0,0.08);
 }
 
 .blog-card-image {
   width: 100%;
-  height: 200px;
+  height: 150px;
   object-fit: cover;
   display: block;
   border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -2855,7 +2856,7 @@ body {
 
 .blog-card-image-fallback {
   width: 100%;
-  height: 200px;
+  height: 150px;
   background: linear-gradient(135deg, #1a1209 0%, #0d0d0d 100%);
   display: flex;
   align-items: center;
@@ -2877,29 +2878,29 @@ body {
   display: inline-block;
   background: linear-gradient(135deg, rgba(255,140,0,0.15) 0%, rgba(255,140,0,0.05) 100%);
   color: #ff8c00;
-  padding: 4px 12px;
+  padding: 2px 4px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 8px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
   border: 1px solid rgba(255,140,0,0.2);
 }
 
 .blog-card-title {
   color: #fff;
-  font-size: 20px;
+  font-size: 8px;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   line-height: 1.3;
 }
 
 .blog-card-excerpt {
   color: #aaa;
-  font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 18px;
+  font-size: 8px;
+  line-height: 1.5;
+  margin-bottom: 4px;
 }
 
 .blog-card-footer {
@@ -2912,13 +2913,13 @@ body {
 
 .blog-card-date {
   color: #666;
-  font-size: 12px;
+  font-size: 8px;
   font-weight: 600;
 }
 
 .blog-card-read {
   color: #ff8c00;
-  font-size: 13px;
+  font-size: 8px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -2934,7 +2935,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px;
+  width: 36px;
   height: 44px;
   border-radius: 50%;
   background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%);
@@ -2974,7 +2975,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 30px;
+  margin-top: 6px;
 }
 
 .blog-dot {
@@ -2999,7 +3000,7 @@ body {
   text-align: center;
   color: #666;
   padding: 60px 20px;
-  font-size: 16px;
+  font-size: 8px;
 }
 
 .blog-error {
@@ -3007,21 +3008,21 @@ body {
   text-align: center;
   color: #ff6b6b;
   padding: 60px 20px;
-  font-size: 16px;
+  font-size: 8px;
 }
 
 /* Responsive */
 @media (max-width: 992px) {
   .blog-card { min-width: calc(50% - 13px); }
-  .blog-slider-wrapper { padding: 0 40px; }
+  .blog-slider-wrapper { padding: 0 24px; }
 }
 
 @media (max-width: 600px) {
   .blog-card { min-width: 100%; }
-  .blog-slider-wrapper { padding: 0 35px; }
-  .blog-card-image, .blog-card-image-fallback { height: 180px; }
+  .blog-slider-wrapper { padding: 0 24px; }
+  .blog-card-image, .blog-card-image-fallback { height: 140px; }
   .blog-card-content { padding: 20px; }
-  .blog-card-title { font-size: 18px; }
+  .blog-card-title { font-size: 8px; }
 }
 </style>
 
