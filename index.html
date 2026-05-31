@@ -2117,6 +2117,8 @@ body {
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -2747,6 +2749,537 @@ body {
     </div>
   </div>
 </section>
+
+<!-- ===== BLOG SLIDER SECTION (AUTO-READS FROM BLOG PAGE) ===== -->
+<section class="blog-slider-section" id="blogSection">
+  <div class="section-header reveal">
+    <div style="font-family:monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:15px;">
+      FROM THE BLOG
+    </div>
+    <h1 class="section-title" style="color:#fff;">Latest <span>Insights</span></h1>
+    <p style="color:#aaa; max-width:600px; margin:15px auto 0; line-height:1.7;">
+      Expert tips, maintenance guides, and industry updates to keep your home running smoothly.
+    </p>
+  </div>
+
+  <div class="blog-slider-wrapper reveal">
+    <div class="blog-slider-container" id="blogSliderContainer">
+      <div class="blog-slider-track" id="blogSliderTrack">
+        <div class="blog-loading">Loading latest posts...</div>
+      </div>
+    </div>
+
+    <button class="blog-nav-btn blog-nav-prev" id="blogPrevBtn" aria-label="Previous blog">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="blog-nav-btn blog-nav-next" id="blogNextBtn" aria-label="Next blog">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+
+    <div class="blog-dots" id="blogDots"></div>
+  </div>
+
+  <div style="text-align:center; margin-top:40px;" class="reveal">
+    <a href="https://boilerhealth.github.io/blogs/" class="btn-3d btn-secondary">View All Blogs</a>
+  </div>
+</section>
+
+<style>
+/* ===== BLOG SLIDER STYLES ===== */
+.blog-slider-section {
+  background: linear-gradient(145deg, #0d0d0d 0%, #121212 50%, #1a1209 100%);
+  padding: 80px 30px;
+  border-radius: 24px;
+  max-width: 1200px;
+  margin: 40px auto;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.blog-slider-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 200px;
+  background: radial-gradient(ellipse, rgba(255,140,0,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.blog-slider-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 50px auto 0;
+  padding: 0 50px;
+}
+
+.blog-slider-container {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.blog-slider-track {
+  display: flex;
+  gap: 25px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+.blog-card {
+  min-width: calc(33.333% - 17px);
+  background: linear-gradient(145deg, rgba(28,28,28,0.95) 0%, rgba(18,18,18,0.98) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
+  text-decoration: none;
+  display: block;
+}
+
+.blog-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(255,140,0,0.2);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(255,140,0,0.08);
+}
+
+.blog-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.blog-card-image-fallback {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #1a1209 0%, #0d0d0d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.blog-card-image-fallback svg {
+  width: 48px;
+  height: 48px;
+  opacity: 0.3;
+}
+
+.blog-card-content {
+  padding: 25px;
+}
+
+.blog-card-category {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(255,140,0,0.15) 0%, rgba(255,140,0,0.05) 100%);
+  color: #ff8c00;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255,140,0,0.2);
+}
+
+.blog-card-title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.blog-card-excerpt {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.blog-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 15px;
+}
+
+.blog-card-date {
+  color: #666;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.blog-card-read {
+  color: #ff8c00;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.3s;
+}
+
+.blog-card:hover .blog-card-read {
+  gap: 8px;
+}
+
+.blog-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%);
+  border: 1px solid rgba(255,140,0,0.25);
+  color: #ff8c00;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.blog-nav-btn:hover {
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
+  color: #121212;
+  border-color: #ff8c00;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 25px rgba(255,140,0,0.4);
+}
+
+.blog-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.blog-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: translateY(-50%);
+}
+
+.blog-nav-prev { left: 0; }
+.blog-nav-next { right: 0; }
+
+.blog-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.blog-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.blog-dot.active {
+  background: #ff8c00;
+  box-shadow: 0 0 12px rgba(255,140,0,0.5);
+  transform: scale(1.2);
+}
+
+.blog-loading {
+  width: 100%;
+  text-align: center;
+  color: #666;
+  padding: 60px 20px;
+  font-size: 16px;
+}
+
+.blog-error {
+  width: 100%;
+  text-align: center;
+  color: #ff6b6b;
+  padding: 60px 20px;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .blog-card { min-width: calc(50% - 13px); }
+  .blog-slider-wrapper { padding: 0 40px; }
+}
+
+@media (max-width: 600px) {
+  .blog-card { min-width: 100%; }
+  .blog-slider-wrapper { padding: 0 35px; }
+  .blog-card-image, .blog-card-image-fallback { height: 180px; }
+  .blog-card-content { padding: 20px; }
+  .blog-card-title { font-size: 18px; }
+}
+</style>
+
+<script>
+// ===== BLOG SLIDER - FETCHES REAL POSTS FROM BLOG PAGE =====
+(function() {
+  const BLOG_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyruL4h7siyN7vwpD82q7CNN_T9fnh2IUzQG09isgNcMUuppPeNysU0d0auAsTNXsd1/exec'; // ← PASTE YOUR NEW WEB APP URL HERE
+
+  // Fallback posts if fetch fails
+  const FALLBACK_POSTS = [
+    {
+      title: "Summer Boiler Maintenance Tips",
+      excerpt: "Keep your boiler running efficiently during the warmer months with these essential maintenance tips.",
+      image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
+      date: "2026-05-28",
+      url: "https://boilerhealth.github.io/blogs/",
+      category: "Maintenance"
+    },
+    {
+      title: "Signs Your Boiler Needs Repair",
+      excerpt: "Don't ignore these warning signs. Early detection can save you from costly breakdowns.",
+      image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80",
+      date: "2026-05-20",
+      url: "https://boilerhealth.github.io/blogs/",
+      category: "Safety"
+    },
+    {
+      title: "Understanding Your Boiler Warranty",
+      excerpt: "Everything you need to know about boiler warranties and what they actually cover.",
+      image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
+      date: "2026-05-15",
+      url: "https://boilerhealth.github.io/blogs/",
+      category: "Guide"
+    },
+    {
+      title: "Energy Saving Hacks for Winter",
+      excerpt: "Reduce your heating bills without sacrificing comfort this winter season.",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+      date: "2026-05-10",
+      url: "https://boilerhealth.github.io/blogs/",
+      category: "Tips"
+    },
+    {
+      title: "Boiler Installation: What to Expect",
+      excerpt: "A complete guide to the boiler installation process from start to finish.",
+      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80",
+      date: "2026-05-05",
+      url: "https://boilerhealth.github.io/blogs/",
+      category: "Guide"
+    }
+  ];
+
+  const container = document.getElementById('blogSliderContainer');
+  const track = document.getElementById('blogSliderTrack');
+  const prevBtn = document.getElementById('blogPrevBtn');
+  const nextBtn = document.getElementById('blogNextBtn');
+  const dotsContainer = document.getElementById('blogDots');
+
+  let posts = [];
+  let currentIndex = 0;
+  let autoPlayInterval = null;
+  let cardsPerView = 3;
+  let maxIndex = 0;
+
+  function getCardsPerView() {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 992) return 2;
+    return 3;
+  }
+
+  function formatDate(dateStr) {
+    try {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    } catch(e) {
+      return dateStr;
+    }
+  }
+
+  function createCard(post) {
+    const hasImage = post.image && post.image.length > 5;
+
+    const imageHtml = hasImage 
+      ? `<img src="${post.image}" alt="${post.title}" class="blog-card-image" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+      : '';
+
+    const fallbackHtml = `
+      <div class="blog-card-image-fallback" style="${hasImage ? 'display:none' : ''}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <path d="M21 15l-5-5L5 21"/>
+        </svg>
+      </div>
+    `;
+
+    return `
+      <a href="${post.url}" class="blog-card" target="_blank">
+        ${imageHtml}
+        ${fallbackHtml}
+        <div class="blog-card-content">
+          <span class="blog-card-category">${post.category || 'Blog'}</span>
+          <h3 class="blog-card-title">${post.title}</h3>
+          <p class="blog-card-excerpt">${post.excerpt}</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-date">${formatDate(post.date)}</span>
+            <span class="blog-card-read">Read More →</span>
+          </div>
+        </div>
+      </a>
+    `;
+  }
+
+  function renderDots() {
+    dotsContainer.innerHTML = '';
+    const totalDots = maxIndex + 1;
+    for (let i = 0; i < totalDots; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'blog-dot' + (i === currentIndex ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    const dots = dotsContainer.querySelectorAll('.blog-dot');
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  function updateButtons() {
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= maxIndex;
+  }
+
+  function goToSlide(index) {
+    if (index < 0) index = 0;
+    if (index > maxIndex) index = maxIndex;
+    currentIndex = index;
+    const translateX = -(currentIndex * (100 / cardsPerView));
+    track.style.transform = `translateX(${translateX}%)`;
+    updateDots();
+    updateButtons();
+  }
+
+  function nextSlide() {
+    if (currentIndex < maxIndex) {
+      goToSlide(currentIndex + 1);
+    } else {
+      goToSlide(0);
+    }
+  }
+
+  function prevSlide() {
+    if (currentIndex > 0) {
+      goToSlide(currentIndex - 1);
+    }
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoPlayInterval = setInterval(nextSlide, 5000);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = null;
+    }
+  }
+
+  function initSlider(postList) {
+    posts = postList;
+    cardsPerView = getCardsPerView();
+    maxIndex = Math.max(0, posts.length - cardsPerView);
+
+    if (posts.length <= cardsPerView) {
+      track.style.justifyContent = 'center';
+      maxIndex = 0;
+    } else {
+      track.style.justifyContent = 'flex-start';
+    }
+
+    track.innerHTML = posts.map(createCard).join('');
+    currentIndex = 0;
+    track.style.transform = 'translateX(0)';
+    renderDots();
+    updateButtons();
+    startAutoPlay();
+  }
+
+  // ===== FETCH FROM GOOGLE SHEET =====
+  async function fetchBlogPosts() {
+    try {
+      const response = await fetch(BLOG_SHEET_URL);
+      if (!response.ok) throw new Error('Sheet fetch failed: ' + response.status);
+
+      const posts = await response.json();
+
+      if (Array.isArray(posts) && posts.length > 0) {
+        console.log('Fetched', posts.length, 'posts from sheet');
+        initSlider(posts);
+      } else {
+        throw new Error('Empty sheet response');
+      }
+    } catch (err) {
+      console.log('Sheet fetch failed, using fallback:', err.message);
+      initSlider(FALLBACK_POSTS);
+    }
+  }// Load posts immediately
+  fetchBlogPosts();
+
+  // Event listeners
+  prevBtn.addEventListener('click', () => { stopAutoPlay(); prevSlide(); startAutoPlay(); });
+  nextBtn.addEventListener('click', () => { stopAutoPlay(); nextSlide(); startAutoPlay(); });
+
+  container.addEventListener('mouseenter', stopAutoPlay);
+  container.addEventListener('mouseleave', startAutoPlay);
+
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const newCardsPerView = getCardsPerView();
+      if (newCardsPerView !== cardsPerView && posts.length > 0) {
+        cardsPerView = newCardsPerView;
+        maxIndex = Math.max(0, posts.length - cardsPerView);
+        if (posts.length <= cardsPerView) {
+          track.style.justifyContent = 'center';
+          maxIndex = 0;
+        } else {
+          track.style.justifyContent = 'flex-start';
+        }
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        goToSlide(currentIndex);
+        renderDots();
+      }
+    }, 250);
+  });
+
+  let touchStartX = 0;
+  container.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoPlay();
+  }, { passive: true });
+  container.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) nextSlide();
+      else prevSlide();
+    }
+    startAutoPlay();
+  }, { passive: true });
+})();
+</script>
 
 <!-- FOOTER -->
 <footer class="footer">
