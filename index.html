@@ -4181,7 +4181,7 @@ function handleNewsletterSubmit(e) {
   btnSpinner.style.display = 'inline-flex';
 
   // Send to Google Sheet
-  fetch('https://script.google.com/macros/s/AKfycbxX5aoxCGYp3-_NU0O0zcZQ14FvEUQwUYZCcAgjitZoINvtluutjyq-hBBBfRgJKvAw/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbw-FjsDHShHoEXEQLbcfPCPrtn4RYiLdB7lfZ9VTU6kDhAi6ZhMIchatFI9yAL_oRt_/exec', {
     method: 'POST',
     body: JSON.stringify({ email: email, source: 'Homepage' })
   })
@@ -4224,7 +4224,7 @@ function handleContactSubmit(e) {
   btnText.style.display = 'none';
   btnSpinner.style.display = 'inline-flex';
 
-  fetch('https://script.google.com/macros/s/AKfycbxX5aoxCGYp3-_NU0O0zcZQ14FvEUQwUYZCcAgjitZoINvtluutjyq-hBBBfRgJKvAw/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbw-FjsDHShHoEXEQLbcfPCPrtn4RYiLdB7lfZ9VTU6kDhAi6ZhMIchatFI9yAL_oRt_/exec', {
     method: 'POST',
     body: JSON.stringify({ name: name, email: email, message: message, type: 'contact' })
   })
