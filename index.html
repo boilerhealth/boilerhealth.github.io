@@ -4171,6 +4171,11 @@ function handleNewsletterSubmit(e) {
   btnSpinner.style.display = 'inline-flex';
 
   // Simulate API call (replace with your actual endpoint)
+  setTimeout(() => {
+    form.style.display = 'none';
+    success.style.display = 'block';
+    console.log('Newsletter signup:', email);
+  }, 1500);
     // Send to Google Sheet
   fetch('https://script.google.com/macros/s/AKfycbxX5aoxCGYp3-_NU0O0zcZQ14FvEUQwUYZCcAgjitZoINvtluutjyq-hBBBfRgJKvAw/exec', {
     method: 'POST',
