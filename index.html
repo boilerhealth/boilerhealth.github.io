@@ -3938,10 +3938,9 @@ body {
 <section class="newsletter-section" id="newsletterSection">
   <div class="newsletter-bg-glow"></div>
   <div class="newsletter-content reveal">
-    <div class="newsletter-badge">FREE DOWNLOAD</div>
     <h2 class="newsletter-title">Get Our <span>Boiler plans</span></h2>
     <p class="newsletter-desc">
-      Join us
+      Join Us
     </p>
 
     <form class="newsletter-form" id="newsletterForm" onsubmit="return handleNewsletterSubmit(event)">
@@ -4194,6 +4193,48 @@ function handleNewsletterSubmit(e) {
   .catch(err => {
     console.error('Signup error:', err);
     // Still show success so user isn't frustrated
+    form.style.display = 'none';
+    success.style.display = 'block';
+  });
+
+  return false;
+}
+
+// ===== CONTACT FORM HANDLER =====
+function handleContactSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const name = document.getElementById('contactName').value.trim();
+  const email = document.getElementById('contactEmail').value.trim();
+  const message = document.getElementById('contactMessage').value.trim();
+  const btn = document.getElementById('contactBtn');
+  const btnText = btn.querySelector('.btn-text');
+  const btnSpinner = btn.querySelector('.btn-spinner');
+  const success = document.getElementById('contactSuccess');
+
+  if (!name || !email || !message || !email.includes('@')) {
+    document.getElementById('contactEmail').style.borderColor = '#ff3b30';
+    setTimeout(() => {
+      document.getElementById('contactEmail').style.borderColor = '';
+    }, 1500);
+    return false;
+  }
+
+  btn.disabled = true;
+  btnText.style.display = 'none';
+  btnSpinner.style.display = 'inline-flex';
+
+  fetch('https://script.google.com/macros/s/AKfycbxX5aoxCGYp3-_NU0O0zcZQ14FvEUQwUYZCcAgjitZoINvtluutjyq-hBBBfRgJKvAw/exec', {
+    method: 'POST',
+    body: JSON.stringify({ name: name, email: email, message: message, type: 'contact' })
+  })
+  .then(res => res.json())
+  .then(data => {
+    form.style.display = 'none';
+    success.style.display = 'block';
+  })
+  .catch(err => {
+    console.error('Contact error:', err);
     form.style.display = 'none';
     success.style.display = 'block';
   });
