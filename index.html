@@ -244,15 +244,17 @@ body {
 
 /* ===== PREMIUM DEAL BANNER ===== */
 .hero-deal-banner {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 24px;
+  margin: 0 auto 14px auto;
   position: relative;
-  padding: 20px 50px;
-  border-radius: 100px;
+  padding: 18px 48px;
+  border-radius: 50px;
+  width: fit-content;
+  max-width: 95%;
   background: linear-gradient(135deg, #ffd700 0%, #ff8c00 50%, #ffb347 100%);
-  box-shadow: 0 8px 30px rgba(255,140,0,0.4), 0 0 60px rgba(255,215,0,0.2), inset 0 2px 0 rgba(255,255,255,0.4);
+  box-shadow: 0 4px 16px rgba(255,140,0,0.35), 0 0 30px rgba(255,215,0,0.15), inset 0 1px 0 rgba(255,255,255,0.35);
   animation: dealBannerPulse 3s ease-in-out infinite;
   overflow: hidden;
 }
@@ -261,7 +263,7 @@ body {
   position: absolute;
   top: 0; left: -100%;
   width: 50%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
   animation: bannerShine 3s ease-in-out infinite;
 }
 @keyframes bannerShine {
@@ -269,29 +271,29 @@ body {
   100% { left: 200%; }
 }
 @keyframes dealBannerPulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 8px 30px rgba(255,140,0,0.4), 0 0 60px rgba(255,215,0,0.2), inset 0 2px 0 rgba(255,255,255,0.4); }
-  50% { transform: scale(1.04); box-shadow: 0 12px 40px rgba(255,140,0,0.6), 0 0 90px rgba(255,215,0,0.35), inset 0 2px 0 rgba(255,255,255,0.5); }
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 16px rgba(255,140,0,0.35), 0 0 30px rgba(255,215,0,0.15), inset 0 1px 0 rgba(255,255,255,0.35); }
+  50% { transform: scale(1.03); box-shadow: 0 6px 22px rgba(255,140,0,0.5), 0 0 50px rgba(255,215,0,0.25), inset 0 1px 0 rgba(255,255,255,0.4); }
 }
 .deal-line {
-  font-size: clamp(12px, 2vw, 16px);
+  font-size: clamp(12px, 2vw, 18px);
   font-weight: 800;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: #121212;
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   position: relative;
   z-index: 1;
 }
 .deal-headline {
-  font-size: clamp(28px, 6vw, 56px);
+  font-size: clamp(32px, 7vw, 64px);
   font-weight: 900;
-  line-height: 1.0;
+  line-height: 1.05;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #fff;
   display: inline-block;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
   position: relative;
   z-index: 1;
 }
@@ -301,8 +303,8 @@ body {
   background-size: 200% 200%;
   padding: 4px 14px;
   border-radius: 10px;
-  margin-left: 6px;
-  box-shadow: 0 4px 15px rgba(255,140,0,0.4), 0 0 30px rgba(255,215,0,0.2), inset 0 1px 0 rgba(255,255,255,0.4);
+  margin-left: 8px;
+  box-shadow: 0 3px 12px rgba(255,140,0,0.4), 0 0 20px rgba(255,215,0,0.2), inset 0 1px 0 rgba(255,255,255,0.3);
   display: inline-block;
   position: relative;
   overflow: hidden;
@@ -314,20 +316,20 @@ body {
   position: absolute;
   top: 0; left: -100%;
   width: 60%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
   animation: badgeShine 2s ease-in-out infinite;
 }
 .deal-headline span::after {
   content: '';
   position: absolute;
   inset: -2px;
-  border-radius: 12px;
+  border-radius: 8px;
   background: linear-gradient(90deg, #ffd700, #ff8c00, #ffb347, #ffd700);
   background-size: 300% 100%;
   z-index: -1;
-  opacity: 0.6;
+  opacity: 0.5;
   animation: borderFlow 3s linear infinite;
-  filter: blur(4px);
+  filter: blur(3px);
 }
 @keyframes badgeGradientShift {
   0% { background-position: 0% 50%; }
@@ -335,8 +337,8 @@ body {
   100% { background-position: 0% 50%; }
 }
 @keyframes badgeMegaGlow {
-  0%, 100% { box-shadow: 0 4px 15px rgba(255,140,0,0.4), 0 0 30px rgba(255,215,0,0.2), inset 0 1px 0 rgba(255,255,255,0.4); }
-  50% { box-shadow: 0 6px 25px rgba(255,140,0,0.7), 0 0 60px rgba(255,215,0,0.5), 0 0 100px rgba(255,140,0,0.15), inset 0 1px 0 rgba(255,255,255,0.5); }
+  0%, 100% { box-shadow: 0 2px 8px rgba(255,140,0,0.35), 0 0 16px rgba(255,215,0,0.15), inset 0 1px 0 rgba(255,255,255,0.3); }
+  50% { box-shadow: 0 3px 14px rgba(255,140,0,0.6), 0 0 35px rgba(255,215,0,0.35), inset 0 1px 0 rgba(255,255,255,0.4); }
 }
 @keyframes badgeShine {
   0% { left: -100%; }
@@ -347,6 +349,53 @@ body {
   100% { background-position: 300% 50%; }
 }
 
+
+/* ===== DEAL TIMER ===== */
+.deal-timer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+  transform: scale(0.72);
+  transform-origin: center top;
+}
+.timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(145deg, #121212 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255,140,0,0.25);
+  border-radius: 10px;
+  padding: 8px 14px;
+  min-width: 56px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.timer-unit span {
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 900;
+  color: #ffd700;
+  line-height: 1;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-shadow: 0 0 15px rgba(255,215,0,0.4);
+}
+.timer-unit label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+}
+.timer-sep {
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 900;
+  color: #fff;
+  opacity: 0.6;
+  line-height: 1;
+  margin-top: -10px;
+}
 /* ===== FEATURE CARDS - REALISTIC GLASS ===== */
 .features-grid {
   display: grid;
@@ -1811,11 +1860,249 @@ body {
   }
 }
 
+
+/* ===== PRICE COMPARISON TABLE - ADVANCED ===== */
+.comparison-section {
+  background: linear-gradient(145deg, #121212 0%, #0d0d0d 100%);
+  padding: 50px 20px;
+  border-radius: 24px;
+  max-width: 1100px;
+  margin: 40px auto;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.comparison-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 200px;
+  background: radial-gradient(ellipse, rgba(255,140,0,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.comparison-table-wrap {
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-width: 750px;
+}
+
+.comparison-table thead th {
+  background: linear-gradient(145deg, #1a1a1a 0%, #121212 100%);
+  color: #fff;
+  padding: 16px 10px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+  border-bottom: 2px solid rgba(255,140,0,0.3);
+  position: sticky;
+  top: 0;
+}
+
+.comparison-table thead th.comp-feature-header {
+  text-align: left;
+  font-size: 14px;
+  color: #ff8c00;
+  width: 22%;
+  border-top-left-radius: 16px;
+}
+
+.comparison-table thead th.comp-brand-col {
+  width: 15.5%;
+  vertical-align: middle;
+}
+
+.comparison-table thead th:last-child {
+  border-top-right-radius: 16px;
+}
+
+.comp-brand-logo {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #121212;
+  font-size: 18px;
+  margin: 0 auto 6px;
+  box-shadow: 0 4px 15px rgba(255,140,0,0.3);
+}
+
+.comp-brand-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.comp-brand-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+  color: #121212;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+
+.comparison-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.02);
+}
+
+.comparison-table tbody tr:hover {
+  background: rgba(255,140,0,0.06);
+}
+
+.comparison-table tbody td {
+  padding: 12px 10px;
+  text-align: center;
+  color: #bbb;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  vertical-align: middle;
+}
+
+.comparison-table tbody td.comp-feature {
+  text-align: left;
+  font-weight: 600;
+  color: #ddd;
+  padding-left: 20px;
+}
+
+.comp-our-brand {
+  background: linear-gradient(145deg, rgba(255,140,0,0.1) 0%, rgba(255,140,0,0.04) 100%);
+  border-left: 3px solid #ff8c00;
+  border-right: 3px solid #ff8c00;
+  position: relative;
+}
+
+.comparison-table tbody tr:first-child .comp-our-brand {
+  border-top: 3px solid #ff8c00;
+}
+
+.comparison-table tbody tr:last-child .comp-our-brand {
+  border-bottom: 3px solid #ff8c00;
+}
+
+.comparison-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 16px;
+}
+
+.comparison-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 16px;
+}
+
+.comp-rating {
+  display: block;
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffd700;
+}
+
+.comp-reviews {
+  display: block;
+  font-size: 10px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.comp-best-price {
+  display: block;
+  font-size: 20px;
+  font-weight: 900;
+  color: #ff8c00;
+}
+
+.comp-price {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.comp-best-label {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff8c00 0%, #ff6b00 100%);
+  color: #121212;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.comp-check {
+  display: inline-block;
+  background: rgba(0,255,136,0.1);
+  color: #00ff88;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(0,255,136,0.2);
+}
+
+.comp-cross {
+  display: inline-block;
+  background: rgba(255,59,48,0.1);
+  color: #ff3b30;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,59,48,0.2);
+}
+
+@media (max-width: 768px) {
+  .comparison-table { font-size: 12px; min-width: 650px; }
+  .comparison-table thead th, .comparison-table tbody td { padding: 8px 4px; }
+  .comp-best-price, .comp-rating { font-size: 16px; }
+  .comp-price { font-size: 14px; }
+}
+@media (max-width: 768px) {
+  .comparison-table { font-size: 12px; }
+  .comparison-table thead th, .comparison-table tbody td { padding: 8px 4px; }
+  .comp-best-price, .comp-rating { font-size: 14px; }
+}
+@media (max-width: 768px) {
+  .comparison-table { font-size: 12px; }
+  .comparison-table thead th, .comparison-table tbody td { padding: 8px 4px; }
+  .comp-best-price, .comp-rating { font-size: 14px; }
+}
+  .comparison-table thead th, .comparison-table tbody td { padding: 12px 8px; }
+  .comp-best-price, .comp-rating { font-size: 16px; }
+}
 </style>
 <base target="_blank">
 
 <!-- THREE.JS 3D PIPELINE -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
@@ -1942,10 +2229,19 @@ body {
     </svg>
   </div>
 
-  <div class="hero-content">
+  <div
     <div class="hero-deal-banner reveal">
         <span class="deal-line">Limited Time Summer Offer</span>
         <span class="deal-headline">UP TO <span>35% OFF</span></span>
+        <div class="deal-timer" id="dealTimer">
+          <div class="timer-unit"><span id="timerDays">00</span><label>Days</label></div>
+          <div class="timer-sep">:</div>
+          <div class="timer-unit"><span id="timerHours">00</span><label>Hours</label></div>
+          <div class="timer-sep">:</div>
+          <div class="timer-unit"><span id="timerMins">00</span><label>Mins</label></div>
+          <div class="timer-sep">:</div>
+          <div class="timer-unit"><span id="timerSecs">00</span><label>Secs</label></div>
+        </div>
       </div>
       <h1 class="hero-title reveal">THE END OF <span style="color:#ff8c00;">COLD</span></h1>
     <p class="hero-subtitle reveal reveal-delay-1">
@@ -1967,8 +2263,10 @@ body {
       <span style="position:relative;display:inline-block;"><a href="#" class="btn-3d btn-secondary" id="chatExpertBtn" onclick="event.preventDefault(); if(typeof Tawk_API!=='undefined'&&Tawk_API.maximize){Tawk_API.maximize(); hideChatPopup();}return false;">Chat with Expert<span id="chatBadge" class="chat-badge" style="display:none;">1</span></a><div id="chatPopup" class="chat-popup"><div class="chat-popup-arrow"></div><div class="chat-popup-inner" onclick="if(typeof Tawk_API!=='undefined'&&Tawk_API.maximize){Tawk_API.maximize(); hideChatPopup();}"><span class="chat-popup-close" onclick="event.stopPropagation(); hideChatPopup();">&times;</span><strong>You have a message from expert?</strong></div></div></span>
     </div>
   </div>
+</div>
 
-  <div class="features-grid">
+<div class="hero-content">
+     <div class="features-grid">
     <div class="feature-card reveal">
       <div class="feature-icon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="2">
@@ -2023,7 +2321,7 @@ body {
     <!-- Core Plan -->
     <div class="plan-card reveal">
       <h2 class="plan-name">Core</h2>
-      <div class="save-badge">Save 35%</div>
+      <div class="save-badge">Save 26%</div>
       <h3 class="plan-price" data-annual-original="133.56" data-annual="99" data-monthly-original="11.13" data-monthly="8.25"><span class="price-original">£133.56<span>/year</span></span><span class="price-offer">£99<span>/year</span></span></h3>
       <ul class="plan-features">
         <li>Boiler breakdown</li>
@@ -2226,6 +2524,183 @@ body {
   </div>
 </section>
 
+<!-- PRICE COMPARISON SECTION -->
+<div class="comparison-section">
+  <div class="section-header reveal">
+    <h1 class="section-title" style="color:#fff;">How Do We <span>Compare on Price?</span></h1>
+    <p style="color:#aaa; max-width:650px; margin:15px auto 0; line-height:1.7;">See why thousands choose Boiler Health over the competition.</p>
+  </div>
+
+  <div class="comparison-table-wrap reveal">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th class="comp-feature-header">Price Comparison</th>
+          <th class="comp-brand-col comp-our-brand">
+            <div class="comp-brand-logo">B</div>
+            <div class="comp-brand-name">Boiler Health</div>
+            <div class="comp-brand-tag">Our Pick</div>
+          </th>
+          <th class="comp-brand-col">
+            <div class="comp-brand-name">24/7 Home Rescue</div>
+          </th>
+          <th class="comp-brand-col">
+            <div class="comp-brand-name">Hometree</div>
+          </th>
+          <th class="comp-brand-col">
+            <div class="comp-brand-name">HomeServe</div>
+          </th>
+          <th class="comp-brand-col">
+            <div class="comp-brand-name">British Gas</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="comp-feature">Customer Rating</td>
+          <td class="comp-our-brand">
+            <span class="comp-rating">4.8</span>
+            <span class="comp-reviews">50,000+ Reviews</span>
+          </td>
+          <td><span class="comp-rating">4.6</span><span class="comp-reviews">86,000+ Reviews</span></td>
+          <td><span class="comp-rating">4.6</span><span class="comp-reviews">12,000+ Reviews</span></td>
+          <td><span class="comp-rating">4.6</span><span class="comp-reviews">85,000+ Reviews</span></td>
+          <td><span class="comp-rating">4.3</span><span class="comp-reviews">110,000+ Reviews</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Monthly Price</td>
+          <td class="comp-our-brand">
+            <span class="comp-best-price">£23.56</span>
+            <span class="comp-best-label">Best Price</span>
+          </td>
+          <td><span class="comp-price">£25.99</span></td>
+          <td><span class="comp-price">£37.72</span></td>
+          <td><span class="comp-price">£19.00</span></td>
+          <td><span class="comp-price">£22.00</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Annual Price</td>
+          <td class="comp-our-brand">
+            <span class="comp-best-price">£282.72</span>
+            <span class="comp-best-label">Best Price</span>
+          </td>
+          <td><span class="comp-price">£311.88</span></td>
+          <td><span class="comp-price">£452.64</span></td>
+          <td><span class="comp-price">£228.00</span></td>
+          <td><span class="comp-price">£264.00</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Excess Fee</td>
+          <td class="comp-our-brand"><span class="comp-check">£0</span></td>
+          <td><span class="comp-cross">£0</span></td>
+          <td><span class="comp-cross">£0</span></td>
+          <td><span class="comp-cross">£60-£100</span></td>
+          <td><span class="comp-cross">£0-£60</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Boiler Breakdown</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Annual Service</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Heating & Radiators</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Plumbing</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Drainage</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Home Electrics</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Pest Control</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Home Security</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">Appliances Cover</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">24/7 Emergency</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+          <td><span class="comp-check">Included</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">No Excess Option</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+        </tr>
+        <tr>
+          <td class="comp-feature">SYBD & CYBH</td>
+          <td class="comp-our-brand"><span class="comp-check">Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+          <td><span class="comp-cross">Not Included</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="text-align:center; margin-top:35px;" class="reveal">
+    <a href="https://sites.google.com/view/my-boiler-health/home/get-protected?authuser=1" class="btn-3d btn-primary">Get the Best Deal</a>
+  </div>
+</div>
 <!-- CONTACT SECTION -->
 <div class="contact-section">
   <div class="section-header reveal">
@@ -2957,5 +3432,41 @@ function toggleBilling() {
             if (originalMaximized) originalMaximized.apply(this, arguments);
         };
     }
+})();
+</script>
+
+<!-- ===== COUNTDOWN TIMER ===== -->
+<script>
+(function() {
+  const target = new Date('2026-07-30T23:59:59').getTime();
+  const daysEl = document.getElementById('timerDays');
+  const hoursEl = document.getElementById('timerHours');
+  const minsEl = document.getElementById('timerMins');
+  const secsEl = document.getElementById('timerSecs');
+
+  function pad(n) { return n < 10 ? '0' + n : n; }
+
+  function tick() {
+    const now = Date.now();
+    const diff = target - now;
+    if (diff <= 0) {
+      if (daysEl) daysEl.textContent = '00';
+      if (hoursEl) hoursEl.textContent = '00';
+      if (minsEl) minsEl.textContent = '00';
+      if (secsEl) secsEl.textContent = '00';
+      return;
+    }
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+    if (daysEl) daysEl.textContent = pad(d);
+    if (hoursEl) hoursEl.textContent = pad(h);
+    if (minsEl) minsEl.textContent = pad(m);
+    if (secsEl) secsEl.textContent = pad(s);
+  }
+
+  tick();
+  setInterval(tick, 1000);
 })();
 </script>
