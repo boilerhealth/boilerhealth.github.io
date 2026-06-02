@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boilerhealth.github.io/sitemap.xml
